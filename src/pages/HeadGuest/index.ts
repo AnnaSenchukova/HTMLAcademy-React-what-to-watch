@@ -1,0 +1,1 @@
+export { HeadGuest } from './HeadGuest';

@@ -1,5 +1,11 @@
+import {AddReview} from '../../pages/AddReview';
+
 function App(): JSX.Element {
-  return <p>Hello, world!</p>;
+  return (
+    <body>
+      <AddReview />
+    </body>
+  );
 }
 
 export default App;
