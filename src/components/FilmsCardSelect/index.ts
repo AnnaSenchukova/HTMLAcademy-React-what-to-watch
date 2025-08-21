@@ -1,0 +1,1 @@
+export {FilmsCardSelect} from './FilmsCardSelect';

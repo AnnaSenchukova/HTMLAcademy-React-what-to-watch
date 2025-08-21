@@ -9,13 +9,15 @@ import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
 import {SignInError} from '../../pages/SignInError';
 import {SignInMessage} from '../../pages/SignInMessage';
+import {IconSprite} from '../IconSprite';
 
 function App(): JSX.Element {
   return (
     <body>
+      <IconSprite />
+      <Main />
       <AddReview />
       <HeadGuest />
-      <Main />
       <MoviePage />
       <MoviePageDetails />
       <MoviePageReviews />
