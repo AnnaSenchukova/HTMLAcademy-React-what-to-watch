@@ -11,18 +11,12 @@ import {SignInError} from '../../pages/SignInError';
 import {SignInMessage} from '../../pages/SignInMessage';
 import {IconSprite} from '../IconSprite';
 
-type PassthroughProps = {
-  preview: string;
-  title: string;
-  genre: string;
-  releaseDate: number;
-};
 
-function App(passthroughProps: PassthroughProps): JSX.Element {
+function App(): JSX.Element {
   return (
     <body>
       <IconSprite />
-      <Main {...passthroughProps} />
+      <Main />
       <AddReview />
       <HeadGuest />
       <MoviePage />
