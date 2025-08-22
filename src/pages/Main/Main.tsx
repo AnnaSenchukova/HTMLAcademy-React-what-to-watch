@@ -1,25 +1,27 @@
-import {PropsWithChildren, ReactElement} from 'react';
+import {ReactElement} from 'react';
 
 import {Header} from '../../components/Header';
-import {FilmsCardSelect} from '../../components/FilmsCardSelect';
+import {FilmsCardPromo} from '../../components/FilmsCardPromo';
 import {Footer} from '../../components/Footer';
 import {FilmsCatalog} from '../../components/FilmsCatalog';
 
-type MainProps = PropsWithChildren<{
-  title?: string;
-}>
+type FilmsCardPromoProps = {
+  preview: string;
+  title: string;
+  genre: string;
+  releaseDate: number;
+};
 
-export function Main({title, children}: MainProps) : ReactElement {
+export function Main(props: FilmsCardPromoProps): ReactElement {
   return (
     <>
-      <FilmsCardSelect>
+      <FilmsCardPromo {...props}>
         <Header />
-      </FilmsCardSelect>
+      </FilmsCardPromo>
       <div className="page-content">
         <FilmsCatalog />
         <Footer />
       </div>
-      {children}
     </>
   );
 }

@@ -11,11 +11,18 @@ import {SignInError} from '../../pages/SignInError';
 import {SignInMessage} from '../../pages/SignInMessage';
 import {IconSprite} from '../IconSprite';
 
-function App(): JSX.Element {
+type FilmsCardPromoProps = {
+  preview: string;
+  title: string;
+  genre: string;
+  releaseDate: number;
+};
+
+function App(props: FilmsCardPromoProps): JSX.Element {
   return (
     <body>
       <IconSprite />
-      <Main />
+      <Main {...props} />
       <AddReview />
       <HeadGuest />
       <MoviePage />

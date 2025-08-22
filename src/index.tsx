@@ -6,8 +6,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const dataFilmsCardPromo = {
+  preview: 'the-grand-budapest-hotel',
+  title: 'The Grand Budapest Hotel',
+  genre: 'Drama',
+  releaseDate: 2014
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App {...dataFilmsCardPromo}/>
   </React.StrictMode>,
 );
