@@ -5,17 +5,17 @@ import {FilmsCardPromo} from '../../components/FilmsCardPromo';
 import {Footer} from '../../components/Footer';
 import {FilmsCatalog} from '../../components/FilmsCatalog';
 
-type FilmsCardPromoProps = {
+type PassthroughProps = {
   preview: string;
   title: string;
   genre: string;
   releaseDate: number;
 };
 
-export function Main(props: FilmsCardPromoProps): ReactElement {
+export function Main(passthroughProps: PassthroughProps): ReactElement {
   return (
     <>
-      <FilmsCardPromo {...props}>
+      <FilmsCardPromo {...passthroughProps}>
         <Header />
       </FilmsCardPromo>
       <div className="page-content">
