@@ -1,4 +1,6 @@
 import {PropsWithChildren, ReactElement} from 'react';
+import {Footer} from '../../components/Footer';
+import {Header} from '../../components/Header';
 
 type SignInErrorProps = PropsWithChildren<{
   title?: string;
@@ -8,16 +10,9 @@ export function SignInError({title, children}:SignInErrorProps): ReactElement {
   return (
     <>
       <div className="user-page">
-        <header className="page-header user-page__head">
-          <div className="logo">
-            <a href="main.html" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-          <h1 className="page-title user-page__title">Sign in</h1>
-        </header>
+        <div className="user-page__head">
+          <Header title='Sign in' isUserBlock={false} />
+        </div>
         <div className="sign-in user-page__content">
           <form action="#" className="sign-in__form">
             <div className="sign-in__message">
@@ -38,18 +33,7 @@ export function SignInError({title, children}:SignInErrorProps): ReactElement {
             </div>
           </form>
         </div>
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
       {children}
     </>

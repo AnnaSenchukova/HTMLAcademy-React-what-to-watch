@@ -10,6 +10,7 @@ export function UserBlock():ReactElement {
       </li>
       <li className="user-block__item">
         <a href="/" className="user-block__link">Sign out</a>
+        {/*<a href="sign-in.html" className="user-block__link">Sign in</a>*/}
       </li>
     </ul>
   );

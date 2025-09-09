@@ -1,4 +1,6 @@
 import {PropsWithChildren, ReactElement} from 'react';
+import {Footer} from '../../components/Footer';
+import {Header} from '../../components/Header';
 
 type MoviePageInListProps = PropsWithChildren<{
   title?: string;
@@ -12,26 +14,9 @@ export function MoviePageInList({title, children}:MoviePageInListProps): ReactEl
           <div className="film-card__bg">
             <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
           </div>
-          <h1 className="visually-hidden">WTW</h1>
-          <header className="page-header film-card__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-            <ul className="user-block">
-              <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width={63} height={63} />
-                </div>
-              </li>
-              <li className="user-block__item">
-                <a href="/" className="user-block__link">Sign out</a>
-              </li>
-            </ul>
-          </header>
+          <div className="film-card__head">
+            <Header />
+          </div>
           <div className="film-card__wrap">
             <div className="film-card__desc">
               <h2 className="film-card__title">The Grand Budapest Hotel</h2>
@@ -131,18 +116,7 @@ export function MoviePageInList({title, children}:MoviePageInListProps): ReactEl
             </article>
           </div>
         </section>
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
       {children}
     </>

@@ -9,13 +9,11 @@ import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
 import {SignInError} from '../../pages/SignInError';
 import {SignInMessage} from '../../pages/SignInMessage';
-import {IconSprite} from '../IconSprite';
 
 
 function App(): JSX.Element {
   return (
-    <body>
-      <IconSprite />
+    <>
       <Main />
       <AddReview />
       <HeadGuest />
@@ -27,7 +25,7 @@ function App(): JSX.Element {
       <SignIn />
       <SignInError />
       <SignInMessage />
-    </body>
+    </>
   );
 }
 
