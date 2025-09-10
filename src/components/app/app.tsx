@@ -2,7 +2,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import {AddReview} from '../../pages/AddReview';
 import {Main} from '../../pages/Main';
-import {MoviePage} from '../../pages/MoviePage';
+import {Films} from '../../pages/Films';
 import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
 import {Player} from '../../pages/Player';
@@ -24,8 +24,8 @@ function App(): JSX.Element {
           </ProtectedRoute>
         }
         />
-        <Route path={AppRoute.MoviePage}>
-          <Route index element={<MoviePage />} />
+        <Route path={AppRoute.Films} element={<Films />}>
+          <Route index element={<Films />} />
           <Route path={AppRoute.AddReview} element={
             <ProtectedRoute authorizationStatus={AuthorizationStatus.Auth}>
               <AddReview />

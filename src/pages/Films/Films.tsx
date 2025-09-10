@@ -2,11 +2,11 @@ import {PropsWithChildren, ReactElement} from 'react';
 import {Footer} from '../../components/Footer';
 import {Header} from '../../components/Header';
 
-type MoviePageProps = PropsWithChildren<{
+type FilmsProps = PropsWithChildren<{
   title?: string;
 }>
 
-export function MoviePage({title, children}: MoviePageProps): ReactElement {
+export function Films({title, children}: FilmsProps): ReactElement {
   return (
     <>
       <section className="film-card film-card--full">
