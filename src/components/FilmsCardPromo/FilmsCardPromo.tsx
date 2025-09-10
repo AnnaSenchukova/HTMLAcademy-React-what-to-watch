@@ -14,7 +14,6 @@ export function FilmsCardPromo({preview, title, genre, releaseDate, children}: F
       <div className="film-card__bg">
         <img src={`img/bg-${preview}.jpg`} alt={title} />
       </div>
-      <h1 className="visually-hidden">WTW</h1>
       <div className="film-card__wrap">
         <div className="film-card__info">
           <div className="film-card__poster">

@@ -11,7 +11,9 @@ export function Main(): ReactElement {
   return (
     <>
       <FilmsCardPromo {...dataFilmsCardPromo}>
-        <Header />
+        <div className="film-card__head">
+          <Header />
+        </div>
       </FilmsCardPromo>
       <div className="page-content">
         <FilmsCatalog />

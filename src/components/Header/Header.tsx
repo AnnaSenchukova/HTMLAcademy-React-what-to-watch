@@ -1,13 +1,20 @@
-import {ReactElement} from 'react';
+import {PropsWithChildren, ReactElement} from 'react';
 
 import {Logo} from '../Logo';
 import {UserBlock} from '../UserBlock';
 
-export function Header(): ReactElement {
+type HeaderProps = PropsWithChildren <{
+  title?: string;
+  isUserBlock? : boolean;
+}>
+
+export function Header({title, isUserBlock = true, children}:HeaderProps): ReactElement {
   return (
-    <header className="page-header film-card__head">
+    <header className="page-header">
       <Logo />
-      <UserBlock />
+      {title && <h1 className="page-title user-page__title">{title}</h1>}
+      {children}
+      {isUserBlock && <UserBlock />}
     </header>
   );
 }
