@@ -1,31 +1,30 @@
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+
 import {AddReview} from '../../pages/AddReview';
-import {HeadGuest} from '../../pages/HeadGuest';
 import {Main} from '../../pages/Main';
 import {MoviePage} from '../../pages/MoviePage';
-import {MoviePageDetails} from '../../pages/MoviePageDetails';
-import {MoviePageReviews} from '../../pages/MoviePageReviews';
-import {MoviePageInList} from '../../pages/MoviePageInList';
 import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
-import {SignInError} from '../../pages/SignInError';
-import {SignInMessage} from '../../pages/SignInMessage';
+import {Player} from '../../pages/Player';
 
 
 function App(): JSX.Element {
   return (
-    <>
-      <Main />
-      <AddReview />
-      <HeadGuest />
-      <MoviePage />
-      <MoviePageDetails />
-      <MoviePageReviews />
-      <MoviePageInList />
-      <MyList />
-      <SignIn />
-      <SignInError />
-      <SignInMessage />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index path='/' element={<Main />} />
+        <Route path='login' element={<SignIn />} />
+        <Route path='mylist' element={<MyList />} />
+        <Route path='films'>
+          <Route path=':id' element={<MoviePage />}>
+            <Route path='review' element={<AddReview />} />
+          </Route>
+        </Route>
+        <Route path='player'>
+          <Route path=':id' element={<Player />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
