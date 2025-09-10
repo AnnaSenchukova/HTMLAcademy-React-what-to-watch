@@ -6,6 +6,7 @@ import {MoviePage} from '../../pages/MoviePage';
 import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
 import {Player} from '../../pages/Player';
+import {Page404} from '../../pages/Page404';
 
 
 function App(): JSX.Element {
@@ -21,8 +22,9 @@ function App(): JSX.Element {
           </Route>
         </Route>
         <Route path='player'>
-          <Route path=':id' element={<Player />}/>
+          <Route path=':id' element={<Player />} />
         </Route>
+        <Route path='*' element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );
