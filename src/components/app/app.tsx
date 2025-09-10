@@ -7,6 +7,8 @@ import {MyList} from '../../pages/MyList';
 import {SignIn} from '../../pages/SignIn';
 import {Player} from '../../pages/Player';
 import {Page404} from '../../pages/Page404';
+import {ProtectedRoute} from '../ProtectedRoute';
+import {AuthorizationStatus} from '../../config/enumAuthorizationStatus';
 
 
 function App(): JSX.Element {
@@ -15,7 +17,12 @@ function App(): JSX.Element {
       <Routes>
         <Route index path='/' element={<Main />} />
         <Route path='login' element={<SignIn />} />
-        <Route path='mylist' element={<MyList />} />
+        <Route path='mylist' element={
+          <ProtectedRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+            <MyList />
+          </ProtectedRoute>
+        }
+        />
         <Route path='films'>
           <Route path=':id' element={<MoviePage />}>
             <Route path='review' element={<AddReview />} />
