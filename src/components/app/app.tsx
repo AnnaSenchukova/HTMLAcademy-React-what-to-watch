@@ -9,28 +9,26 @@ import {Player} from '../../pages/Player';
 import {Page404} from '../../pages/Page404';
 import {ProtectedRoute} from '../ProtectedRoute';
 import {AuthorizationStatus} from '../../config/enumAuthorizationStatus';
+import {AppRoute} from '../../config/enumAppRoute';
 
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index path='/' element={<Main />} />
-        <Route path='login' element={<SignIn />} />
-        <Route path='mylist' element={
+        <Route index path={AppRoute.Root} element={<Main />} />
+        <Route path={AppRoute.SignIn} element={<SignIn />} />
+        <Route path={AppRoute.MyList} element={
           <ProtectedRoute authorizationStatus={AuthorizationStatus.NoAuth}>
             <MyList />
           </ProtectedRoute>
         }
         />
-        <Route path='films'>
-          <Route path=':id' element={<MoviePage />}>
-            <Route path='review' element={<AddReview />} />
-          </Route>
+        <Route path={AppRoute.MoviePage}>
+          <Route index element={<MoviePage />} />
+          <Route path={AppRoute.AddReview} element={<AddReview />} />
         </Route>
-        <Route path='player'>
-          <Route path=':id' element={<Player />} />
-        </Route>
+        <Route path={AppRoute.Player} element={<Player />} />
         <Route path='*' element={<Page404 />} />
       </Routes>
     </BrowserRouter>
