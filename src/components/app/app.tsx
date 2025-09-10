@@ -26,7 +26,12 @@ function App(): JSX.Element {
         />
         <Route path={AppRoute.MoviePage}>
           <Route index element={<MoviePage />} />
-          <Route path={AppRoute.AddReview} element={<AddReview />} />
+          <Route path={AppRoute.AddReview} element={
+            <ProtectedRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <AddReview />
+            </ProtectedRoute>
+          }
+          />
         </Route>
         <Route path={AppRoute.Player} element={<Player />} />
         <Route path='*' element={<Page404 />} />
