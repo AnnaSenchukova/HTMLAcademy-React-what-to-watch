@@ -1,4 +1,4 @@
-export const dataFilmsCard = [
+export const dataFilmsCardCatalog = [
   {
     preview: 'fantastic-beasts-the-crimes-of-grindelwald',
     title: 'Fantastic Beasts: The Crimes of Grindelwald',

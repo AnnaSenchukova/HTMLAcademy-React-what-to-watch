@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
 
-import {dataFilmsCard} from '../../config/dataFilmsCard';
+import {dataFilmsCardCatalog} from '../../config/dataFilmsCardCatalog';
 import {FilmsGenres} from '../FilmsGenres';
 import {FilmsCard} from '../FilmsCard';
 
@@ -10,7 +10,7 @@ export function FilmsCatalog():ReactElement {
       <h2 className="catalog__title visually-hidden">Catalog</h2>
       <FilmsGenres />
       <div className="catalog__films-list">
-        {dataFilmsCard.map((card) => (
+        {dataFilmsCardCatalog.map((card) => (
           <FilmsCard key={card.preview} {...card}/>
         ))}
       </div>
