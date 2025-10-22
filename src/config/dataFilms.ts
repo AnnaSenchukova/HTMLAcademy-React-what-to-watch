@@ -1,6 +1,6 @@
 export const dataFilms = [
   {
-    filmfilmId: 1,
+    filmId: 1,
     title: 'The Grand Budapest Hotel',
     link: 'film-page.html',
     preview: 'the-grand-budapest-hotel',
