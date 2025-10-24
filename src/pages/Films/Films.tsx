@@ -1,14 +1,21 @@
 import {ReactElement} from 'react';
-import { Link, useParams } from 'react-router-dom';
-import {Footer} from '../../components/Footer';
-import {Header} from '../../components/Header';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import {dataFilms} from '../../config/dataFilms';
+
 import {Page404} from '../Page404';
+import {Header} from '../../components/Header';
+import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
+import {Footer} from '../../components/Footer';
+import {FilmRating} from '../../components/FilmRating';
+import {FilmPersonalities} from '../../components/FilmPersonalities';
 
 
 export function Films(): ReactElement {
   const { id } = useParams<{ id: string }>();
   const film = dataFilms.find((subjectFilm) => subjectFilm.filmId === Number(id));
+
   if (!film) {
     return <Page404 />;
   }
@@ -67,62 +74,19 @@ export function Films(): ReactElement {
                   </li>
                 </ul>
               </nav>
-              <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
-                </p>
-              </div>
+              <FilmRating filmId={film.filmId} />
               <div className="film-card__text">
                 {film.overview.map((paragraph) => (
                   <p key={paragraph.slice(0, 50)}>{paragraph}</p>
                 ))}
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
-                <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong></p>
+                <FilmPersonalities filmId={film.filmId} />
               </div>
             </div>
           </div>
         </div>
       </section>
       <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
-          <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
-              </h3>
-            </article>
-          </div>
-        </section>
+        <FilmsCatalogLikeThis />
         <Footer />
       </div>
     </>
