@@ -752,9 +752,9 @@ main {
   display: -ms-flexbox;
   display: flex; }
 
-.film-card__button {
+.film-card__btn {
   margin-right: 14px; }
-  .film-card__button:last-child {
+  .film-card__btn:last-child {
     margin-right: 0; }
 
 .film-card__translate-top {

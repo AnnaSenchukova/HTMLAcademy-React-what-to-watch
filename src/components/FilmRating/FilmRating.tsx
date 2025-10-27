@@ -21,7 +21,7 @@ const getRatingText = (rating: number): string => {
       return 'Normal';
     case rating >= 4.0:
       return 'Bad';
-    case rating >= 0:
+    case rating > 0:
       return 'Awful';
 
     default:

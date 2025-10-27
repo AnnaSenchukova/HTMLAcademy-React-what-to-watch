@@ -1,6 +1,5 @@
 import {ReactElement} from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 import {dataFilms} from '../../config/dataFilms';
 
@@ -10,6 +9,8 @@ import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
 import {Footer} from '../../components/Footer';
 import {FilmRating} from '../../components/FilmRating';
 import {FilmPersonalities} from '../../components/FilmPersonalities';
+import {Btn} from '../../components/Btn';
+import {Icon} from '../../components/Icon';
 
 
 export function Films(): ReactElement {
@@ -38,19 +39,13 @@ export function Films(): ReactElement {
                 <span className="film-card__year">{film.releaseDate}</span>
               </p>
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width={19} height={19}>
-                    <use xlinkHref="#play-s" />
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width={19} height={20}>
-                    <use xlinkHref="#add" />
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <Link to={`/films/${id || ''}/review`} className="btn film-card__button">Add review</Link>
+                <Btn type='button' title='Play' classMod='film-card'>
+                  <Icon viewBox="0 0 19 19" sprite='play-s'/>
+                </Btn>
+                <Btn type='button' title='My list' classMod='film-card'>
+                  <Icon viewBox="0 0 19 20" sprite='add'/>
+                </Btn>
+                <Btn type='link' url={`/films/${id || ''}/review`} title='Add review' classMod='film-card' />
               </div>
             </div>
           </div>
