@@ -9,8 +9,8 @@ import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
 import {Footer} from '../../components/Footer';
 import {FilmRating} from '../../components/FilmRating';
 import {FilmPersonalities} from '../../components/FilmPersonalities';
-import {Btn} from '../../components/Btn';
-import {Icon} from '../../components/Icon';
+import {FilmButtons} from '../../components/FilmButtons';
+import {FilmCardNav} from '../../components/FilmCardNav';
 
 
 export function Films(): ReactElement {
@@ -38,15 +38,7 @@ export function Films(): ReactElement {
                 <span className="film-card__genre">{film.genre}</span>
                 <span className="film-card__year">{film.releaseDate}</span>
               </p>
-              <div className="film-card__buttons">
-                <Btn type='button' title='Play' classMod='film-card'>
-                  <Icon viewBox="0 0 19 19" sprite='play-s'/>
-                </Btn>
-                <Btn type='button' title='My list' classMod='film-card'>
-                  <Icon viewBox="0 0 19 20" sprite='add'/>
-                </Btn>
-                <Btn type='link' url={`/films/${id || ''}/review`} title='Add review' classMod='film-card' />
-              </div>
+              <FilmButtons filmId={id} />
             </div>
           </div>
         </div>
@@ -56,19 +48,7 @@ export function Films(): ReactElement {
               <img src={`img/${film.preview}-poster.jpg`} alt={`${film.title} poster`} width={218} height={327} />
             </div>
             <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="/" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
+              <FilmCardNav />
               <FilmRating filmId={film.filmId} />
               <div className="film-card__text">
                 {film.overview.map((paragraph) => (

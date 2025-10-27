@@ -856,6 +856,7 @@ main {
   display: block;
   color: #EEE5B5;
   text-decoration: none;
+  text-transform: capitalize;
   position: relative;
   padding-bottom: 19px; }
   .film-nav__link::after {

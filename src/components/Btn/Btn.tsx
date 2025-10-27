@@ -6,11 +6,14 @@ type BtnProps = PropsWithChildren<{
   title: string;
   classMod?: string;
   url?: string;
+  action?: string;
 }>
 
-export function Btn({type, classMod, url, title, children}: BtnProps): ReactElement {
+export function Btn({type, classMod, url, title, children, action}: BtnProps): ReactElement {
   const baseClass = 'btn';
-  const className = classMod ? `${baseClass} ${classMod}__${baseClass}` : baseClass;
+  const actionClass = action ? `${baseClass}--${action}` : '';
+  const modClass = classMod ? `${classMod}__${baseClass}` : '';
+  const className = [baseClass, actionClass, modClass].filter(Boolean).join(' ');
   const content = (
     <>
       {children}
