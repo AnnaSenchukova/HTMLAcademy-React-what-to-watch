@@ -7,8 +7,6 @@ import {Page404} from '../Page404';
 import {Header} from '../../components/Header';
 import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
 import {Footer} from '../../components/Footer';
-import {FilmRating} from '../../components/FilmRating';
-import {FilmPersonalities} from '../../components/FilmPersonalities';
 import {FilmButtons} from '../../components/FilmButtons';
 import {FilmInfo} from '../../components/FilmInfo';
 
@@ -47,16 +45,7 @@ export function Films(): ReactElement {
             <div className="film-card__poster film-card__poster--big">
               <img src={`img/${film.preview}-poster.jpg`} alt={`${film.title} poster`} width={218} height={327} />
             </div>
-            <div className="film-card__desc">
-              <FilmInfo />
-              <FilmRating filmId={film.filmId} />
-              <div className="film-card__text">
-                {film.overview.map((paragraph) => (
-                  <p key={paragraph.slice(0, 50)}>{paragraph}</p>
-                ))}
-                <FilmPersonalities filmId={film.filmId} />
-              </div>
-            </div>
+            <FilmInfo filmId={film.filmId}/>
           </div>
         </div>
       </section>
