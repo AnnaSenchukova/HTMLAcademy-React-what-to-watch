@@ -745,7 +745,8 @@ main {
 .film-card__genre::after {
   content: '·';
   margin-left: 4px;
-  margin-right: 4px; }
+  margin-right: 4px;
+  text-transform: capitalize;}
 
 .film-card__buttons {
   display: -webkit-box;

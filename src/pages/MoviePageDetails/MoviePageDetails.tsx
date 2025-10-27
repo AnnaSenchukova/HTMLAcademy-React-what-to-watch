@@ -2,6 +2,9 @@ import {PropsWithChildren, ReactElement} from 'react';
 import {Footer} from '../../components/Footer';
 import {Header} from '../../components/Header';
 import {FilmPersonalities} from '../../components/FilmPersonalities';
+import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
+import {FilmInfoTab} from '../../components/FilmInfoTab';
+import {FilmButtons} from '../../components/FilmButtons';
 
 type MoviePageDetailsProps = PropsWithChildren<{
   title?: string;
@@ -25,21 +28,7 @@ export function MoviePageDetails({title, children}:MoviePageDetailsProps): React
                 <span className="film-card__genre">Drama</span>
                 <span className="film-card__year">2014</span>
               </p>
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__btn" type="button">
-                  <svg viewBox="0 0 19 19" width={19} height={19}>
-                    <use xlinkHref="#play-s" />
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__btn" type="button">
-                  <svg viewBox="0 0 19 20" width={19} height={20}>
-                    <use xlinkHref="#add" />
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn film-card__btn">Add review</a>
-              </div>
+              <FilmButtons filmId={'1'} />
             </div>
           </div>
         </div>
@@ -49,19 +38,6 @@ export function MoviePageDetails({title, children}:MoviePageDetailsProps): React
               <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width={218} height={327} />
             </div>
             <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="/" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="/" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
               <div className="film-card__text film-card__row">
                 <div className="film-card__text-col">
                   <FilmPersonalities filmId={1} variant={'details'} />
@@ -86,43 +62,7 @@ export function MoviePageDetails({title, children}:MoviePageDetailsProps): React
         </div>
       </section>
       <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
-          <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
-              </h3>
-            </article>
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width={280} height={175} />
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
-              </h3>
-            </article>
-          </div>
-        </section>
+        <FilmsCatalogLikeThis />
         <Footer />
       </div>
       {children}

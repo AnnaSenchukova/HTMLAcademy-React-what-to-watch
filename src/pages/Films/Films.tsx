@@ -10,7 +10,7 @@ import {Footer} from '../../components/Footer';
 import {FilmRating} from '../../components/FilmRating';
 import {FilmPersonalities} from '../../components/FilmPersonalities';
 import {FilmButtons} from '../../components/FilmButtons';
-import {FilmCardNav} from '../../components/FilmCardNav';
+import {FilmInfo} from '../../components/FilmInfo';
 
 
 export function Films(): ReactElement {
@@ -48,7 +48,7 @@ export function Films(): ReactElement {
               <img src={`img/${film.preview}-poster.jpg`} alt={`${film.title} poster`} width={218} height={327} />
             </div>
             <div className="film-card__desc">
-              <FilmCardNav />
+              <FilmInfo />
               <FilmRating filmId={film.filmId} />
               <div className="film-card__text">
                 {film.overview.map((paragraph) => (
