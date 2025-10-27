@@ -1,1 +1,0 @@
-export {MoviePageInList} from './MoviePageInList';
