@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
-import {FilmPersonalities} from '../FilmPersonalities';
+import { FilmPersonalities } from '../FilmPersonalities';
+import { FilmDetails } from '../FilmDetails';
 import { dataFilms } from '../../config/dataFilms';
 
 type FilmInfoContentDetailsProps = {
@@ -15,18 +16,9 @@ export function FilmInfoContentDetails({ filmId }: FilmInfoContentDetailsProps):
         <FilmPersonalities filmId={filmId} variant={'details'} />
       </div>
       <div className="film-card__text-col">
-        <p className="film-card__details-item">
-          <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{film?.runTime}</span>
-        </p>
-        <p className="film-card__details-item">
-          <strong className="film-card__details-name">Genre</strong>
-          <span className="film-card__details-value">{film?.genre}</span>
-        </p>
-        <p className="film-card__details-item">
-          <strong className="film-card__details-name">Released</strong>
-          <span className="film-card__details-value">{film?.releaseDate}</span>
-        </p>
+        <FilmDetails name="Run Time" value={film?.runTime ?? 'Unknown'} />
+        <FilmDetails name="Genre" value={film?.genre ?? 'Unknown'} />
+        <FilmDetails name="Released" value={film?.releaseDate ?? 'Soon'} />
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ export function FilmReview({ author, text, rating, date }: FilmReviewProps): Rea
           </time>
         </footer>
       </blockquote>
-      <div className="review__rating">{rating}</div>
+      <div className="review__rating">{rating.toFixed(1).replace('.', ',')}</div>
     </div>
   );
 }

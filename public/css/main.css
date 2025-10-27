@@ -745,8 +745,7 @@ main {
 .film-card__genre::after {
   content: '·';
   margin-left: 4px;
-  margin-right: 4px;
-  text-transform: capitalize;}
+  margin-right: 4px;}
 
 .film-card__buttons {
   display: -webkit-box;
@@ -782,18 +781,21 @@ main {
   font-size: 19px;
   line-height: 27px; }
 
-.film-card__personalities {
+.film-card__personalities,
+.film-card__details-item {
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.4);
 }
 
-.film-card__personalities--details {
+.film-card__personalities--details,
+.film-card__details-item {
   line-height: 30px;
 }
 
-.film-card__personalities--details .film-card__personalities-role {
+.film-card__personalities--details .film-card__personalities-role,
+.film-card__details-item .film-card__details-name {
   display: block;
   color: #252525;
 }
@@ -801,9 +803,11 @@ main {
   display: none;
 }
 
-.film-card__personalities--details .film-card__personalities-name {
+.film-card__personalities--details .film-card__personalities-name,
+.film-card__details-item .film-card__details-value {
   display: block;
   font-weight: 400;
+  text-transform: capitalize;
   color: #131313;
 }
 

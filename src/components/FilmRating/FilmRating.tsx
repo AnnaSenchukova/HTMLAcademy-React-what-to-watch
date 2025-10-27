@@ -31,12 +31,12 @@ const getRatingText = (rating: number): string => {
 
 export function FilmRating({ filmId }: FilmRatingProps): ReactElement {
   const filmRating = dataFilmsRating.find((rating) => rating.filmId === filmId);
-  const ratingValue = filmRating?.value || 0;
-  const ratingText = getRatingText(ratingValue);
+  const ratingValue = filmRating?.value;
+  const ratingText = getRatingText(ratingValue || 0);
 
   return (
     <div className="film-rating">
-      <div className="film-rating__score">{ratingValue || 'N/A'}</div>
+      <div className="film-rating__score">{ratingValue ? ratingValue.toFixed(1).replace('.', ',') : 'N/A'}</div>
       <p className="film-rating__meta">
         <span className="film-rating__level">{ratingText}</span>
         <span className="film-rating__count">{filmRating?.voicesOfViewers || 0} ratings</span>
