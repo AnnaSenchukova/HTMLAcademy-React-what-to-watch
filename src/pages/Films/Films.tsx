@@ -9,6 +9,7 @@ import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
 import {Footer} from '../../components/Footer';
 import {FilmButtons} from '../../components/FilmButtons';
 import {FilmInfo} from '../../components/FilmInfo';
+import {FilmImage} from '../../components/FilmImage';
 
 
 export function Films(): ReactElement {
@@ -23,9 +24,7 @@ export function Films(): ReactElement {
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
-          <div className="film-card__bg">
-            <img src={`img/bg-${film.preview}.jpg`} alt={film.title} />
-          </div>
+          <FilmImage variant='bg' name={film.preview} title={film.title} />
           <div className="film-card__head">
             <Header />
           </div>
@@ -42,9 +41,7 @@ export function Films(): ReactElement {
         </div>
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
-            <div className="film-card__poster film-card__poster--big">
-              <img src={`img/${film.preview}-poster.jpg`} alt={`${film.title} poster`} width={218} height={327} />
-            </div>
+            <FilmImage variant='poster' name={film.preview} title={film.title} classModSize='big' />
             <FilmInfo filmId={film.filmId}/>
           </div>
         </div>
