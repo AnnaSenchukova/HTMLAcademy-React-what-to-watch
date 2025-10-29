@@ -4,7 +4,7 @@ import {FilmImage} from '../FilmImage';
 
 type FilmsCardProps = FilmCard;
 
-export function FilmsCard({filmId, preview, title, ...rest}:FilmsCardProps):ReactElement {
+export function FilmsCard({filmId, preview, title}:FilmsCardProps):ReactElement {
   const filmLink = `/films/${filmId}`;
 
   return (

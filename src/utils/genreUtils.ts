@@ -32,7 +32,7 @@ const PLURAL_EXCEPTIONS = {
   'drama': 'Dramas'
 } as const;
 
-function normalizeGenre(genre: string): string {
+export function normalizeGenre(genre: string): string {
   const lowerGenre = genre.toLowerCase();
   return GENRE_ALIASES[lowerGenre as keyof typeof GENRE_ALIASES] || lowerGenre;
 }

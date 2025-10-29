@@ -124,5 +124,53 @@ export const dataFilms = [
     overview: [
       'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.'
     ],
+  },
+  {
+    filmId: 12,
+    title: 'Toy Story',
+    preview: 'toy-story',
+    genre: 'kids',
+    releaseDate: 1995,
+    runTime: '1h 21m',
+    overview: [
+      'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.',
+      'Woody and Buzz must work together to escape from their neighbor\'s house and return to their owner Andy.'
+    ],
+  },
+  {
+    filmId: 13,
+    title: 'Toy Story 2',
+    preview: 'toy-story-2',
+    genre: 'children',
+    releaseDate: 1999,
+    runTime: '1h 32m',
+    overview: [
+      'When Woody is stolen by a toy collector, Buzz and his friends set out on a rescue mission to save Woody before he becomes a museum toy property.',
+      'Along the way, Woody discovers his origins and must decide between staying with his new toy family or returning to Andy.'
+    ],
+  },
+  {
+    filmId: 14,
+    title: 'Marlboro Man',
+    preview: 'marlboro-man',
+    genre: 'western',
+    releaseDate: 1991,
+    runTime: '1h 39m',
+    overview: [
+      'Two bikers become vigilantes and take on a corrupt businessman who is trying to take over their favorite bar.',
+      'In the spirit of classic westerns, they fight against injustice in modern-day Los Angeles with motorcycles instead of horses.'
+    ],
+  },
+  {
+    filmId: 15,
+    title: 'Blade Runner 2049',
+    preview: 'blade-runner-2049',
+    genre: 'sci-fi',
+    releaseDate: 2017,
+    runTime: '2h 44m',
+    overview: [
+      'Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard.',
+      'Deckard has been missing for thirty years in a world where synthetic humans known as replicants are integrated into society.'
+    ],
   }
 ];

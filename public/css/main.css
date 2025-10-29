@@ -522,6 +522,8 @@ main {
     font-weight: bold; }
     .catalog__genres-item--active .catalog__genres-link::after {
       display: block; }
+  .catalog__genres-item:first-child .catalog__genres-link{
+    text-transform: none; }
   .catalog__genres-item:last-child {
     margin-right: 0; }
 
@@ -529,6 +531,7 @@ main {
   display: block;
   color: #DFCF77;
   text-decoration: none;
+  text-transform: capitalize;
   position: relative;
   padding-bottom: 15px;
   -webkit-transition: font-weight;

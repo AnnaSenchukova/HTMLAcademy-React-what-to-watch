@@ -12,5 +12,4 @@ export type FilmCard = {
   filmId: number;
   preview: string;
   title: string;
-  genre: string;
 };

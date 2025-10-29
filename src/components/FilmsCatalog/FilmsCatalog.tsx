@@ -1,12 +1,12 @@
 import {ReactElement, useState} from 'react';
 
 import {dataFilms} from '../../config/dataFilms';
-import {getGenrePlural} from '../../utils/genreUtils';
+import {getGenrePlural, normalizeGenre} from '../../utils/genreUtils';
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
 
-type Genre = typeof dataFilms[number]['genre'];
-type GenreWithAll = 'all' | Genre;
+type NormalizedGenre = string;
+type GenreWithAll = 'all' | NormalizedGenre;
 
 export function FilmsCatalog():ReactElement {
   const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
@@ -18,13 +18,13 @@ export function FilmsCatalog():ReactElement {
     genre: film.genre
   }));
 
-  const uniqueGenres: Genre[] = Array.from(new Set(dataFilms.map((film) => film.genre)));
+  const uniqueGenres: string[] = Array.from(new Set(dataFilms.map((film) => normalizeGenre(film.genre))));
   const genres: GenreWithAll[] = ['all', ...uniqueGenres];
   const genreTexts: string[] = genres.map((genre) => getGenrePlural(genre));
 
   const filteredFilms = activeGenre === 'all'
     ? catalogFilms
-    : catalogFilms.filter((film) => film.genre === activeGenre);
+    : catalogFilms.filter((film) => normalizeGenre(film.genre) === activeGenre);
 
   return (
     <section className="catalog">
