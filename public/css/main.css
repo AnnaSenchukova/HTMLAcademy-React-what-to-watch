@@ -647,12 +647,11 @@ main {
   .film-card--full {
     padding-bottom: 45px;
     min-height: 100vh; }
-
-.film-card__hero {
-  position: relative;
-  z-index: 1;
-  min-height: 555px;
-  padding-bottom: 210px; }
+  .film-card--full .film-card__hero {
+    position: relative;
+    z-index: 1;
+    min-height: 555px;
+    padding-bottom: 210px; }
 
 .film-card__bg {
   position: absolute;

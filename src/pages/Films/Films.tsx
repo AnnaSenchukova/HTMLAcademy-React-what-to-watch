@@ -25,10 +25,10 @@ export function Films(): ReactElement {
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
-          <FilmImage variant='bg' name={film.preview} title={film.title} />
           <div className="film-card__head">
             <Header />
           </div>
+          <FilmImage variant='bg' name={film.preview} title={film.title} />
           <div className="film-card__wrap">
             <div className="film-card__desc">
               <h2 className="film-card__title">{film.title}</h2>
