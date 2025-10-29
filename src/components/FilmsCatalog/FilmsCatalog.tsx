@@ -2,6 +2,7 @@ import {ReactElement, useState, useEffect} from 'react';
 import type {FilmCard} from '../../types';
 
 import {dataFilms} from '../../config/dataFilms';
+import {dataFilmsRating} from '../../config/dataFilmsRating';
 import {getGenrePlural, normalizeGenre, sortGenresAlphabetically} from '../../utils/genreUtils';
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
@@ -18,9 +19,15 @@ type FilmsCatalogProps = {
 const FILMS_PER_PAGE_MAIN = 20;
 const FILMS_PER_PAGE_RELATED = 4;
 
+const getFilmRating = (filmId: number): number => {
+  const filmRating = dataFilmsRating.find((rating) => rating.filmId === filmId);
+  return filmRating?.value || 0;
+};
+
 const prepareCatalogFilms = (excludeId?: number, filterByGenre?: string): FilmCard[] => dataFilms
   .filter((film) => film.filmId !== excludeId)
   .filter((film) => !filterByGenre || normalizeGenre(film.genre) === filterByGenre)
+  .sort((a, b) => getFilmRating(b.filmId) - getFilmRating(a.filmId)) // Сортировка по рейтингу от лучших к худшим
   .map((film) => ({
     filmId: film.filmId,
     preview: film.preview,
@@ -56,17 +63,14 @@ export function FilmsCatalog({isRelated = false, title, excludeFilmId}: FilmsCat
   const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
   const [displayedCount, setDisplayedCount] = useState(filmsPerPage);
 
-  // Для связанных каталогов исключаем текущий фильм и фильтруем по его жанру
   const currentFilm = isRelated && excludeFilmId ? dataFilms.find((film) => film.filmId === excludeFilmId) : null;
   const currentGenre = currentFilm ? normalizeGenre(currentFilm.genre) : undefined;
 
-  // Сначала пробуем найти фильмы по жанру
   let catalogFilms = prepareCatalogFilms(
     isRelated ? excludeFilmId : undefined,
     isRelated ? currentGenre : undefined
   );
 
-  // Если для связанных фильмов ничего не найдено по жанру, показываем все (кроме текущего)
   if (isRelated && catalogFilms.length === 0 && excludeFilmId) {
     catalogFilms = prepareCatalogFilms(excludeFilmId, undefined);
   }
