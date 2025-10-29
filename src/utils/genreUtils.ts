@@ -52,3 +52,11 @@ export function getGenrePlural(genre: string): string {
 
   return BASE_GENRE_NAMES[normalizedGenre as keyof typeof BASE_GENRE_NAMES] || normalizedGenre;
 }
+
+export function sortGenresAlphabetically(genres: string[]): string[] {
+  return [...genres].sort((firstGenre, secondGenre) => {
+    const firstGenreDisplayName = getGenreSingular(firstGenre);
+    const secondGenreDisplayName = getGenreSingular(secondGenre);
+    return firstGenreDisplayName.localeCompare(secondGenreDisplayName);
+  });
+}

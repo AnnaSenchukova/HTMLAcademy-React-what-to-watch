@@ -1,7 +1,7 @@
 import {ReactElement, useState} from 'react';
 
 import {dataFilms} from '../../config/dataFilms';
-import {getGenrePlural, normalizeGenre} from '../../utils/genreUtils';
+import {getGenrePlural, normalizeGenre, sortGenresAlphabetically} from '../../utils/genreUtils';
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
 
@@ -19,7 +19,9 @@ export function FilmsCatalog():ReactElement {
   }));
 
   const uniqueGenres: string[] = Array.from(new Set(dataFilms.map((film) => normalizeGenre(film.genre))));
-  const genres: GenreWithAll[] = ['all', ...uniqueGenres];
+
+  const sortedGenres = sortGenresAlphabetically(uniqueGenres);
+  const genres: GenreWithAll[] = ['all', ...sortedGenres];
   const genreTexts: string[] = genres.map((genre) => getGenrePlural(genre));
 
   const filteredFilms = activeGenre === 'all'
