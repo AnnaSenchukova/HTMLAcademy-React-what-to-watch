@@ -1,5 +1,3 @@
-import { Genre, GenreWithAll } from '../types/film';
-
 const BASE_GENRE_NAMES = {
   'drama': 'Drama',
   'comedy': 'Comedy',
@@ -34,17 +32,17 @@ const PLURAL_EXCEPTIONS = {
   'drama': 'Dramas'
 } as const;
 
-function normalizeGenre(genre: GenreWithAll | string): string {
-  const normalized = genre.toLowerCase();
-  return GENRE_ALIASES[normalized as keyof typeof GENRE_ALIASES] || normalized;
+function normalizeGenre(genre: string): string {
+  const lowerGenre = genre.toLowerCase();
+  return GENRE_ALIASES[lowerGenre as keyof typeof GENRE_ALIASES] || lowerGenre;
 }
 
-export function getGenreSingular(genre: Genre): string {
+export function getGenreSingular(genre: string): string {
   const normalizedGenre = normalizeGenre(genre);
-  return BASE_GENRE_NAMES[normalizedGenre as keyof typeof BASE_GENRE_NAMES] || normalizedGenre;
+  return BASE_GENRE_NAMES[normalizedGenre as keyof typeof BASE_GENRE_NAMES] || genre;
 }
 
-export function getGenrePlural(genre: GenreWithAll): string {
+export function getGenrePlural(genre: string): string {
   if (genre === 'all'){ return 'All genres'; }
 
   const normalizedGenre = normalizeGenre(genre);

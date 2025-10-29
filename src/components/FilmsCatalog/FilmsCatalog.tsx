@@ -4,7 +4,9 @@ import {dataFilms} from '../../config/dataFilms';
 import {getGenrePlural} from '../../utils/genreUtils';
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
-import {Genre, GenreWithAll} from '../../types/film';
+
+type Genre = typeof dataFilms[number]['genre'];
+type GenreWithAll = 'all' | Genre;
 
 export function FilmsCatalog():ReactElement {
   const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
