@@ -6,45 +6,73 @@ import {getGenrePlural, normalizeGenre, sortGenresAlphabetically} from '../../ut
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
 
-const FILMS_PER_PAGE_MAIN = 20;
-const FILMS_PER_PAGE_RELATED = 4;
-
 type NormalizedGenre = string;
 type GenreWithAll = 'all' | NormalizedGenre;
 
 type FilmsCatalogProps = {
-  typeCatalog: 'main' | 'related';
+  isRelated?: boolean;
   title?: string;
+  excludeFilmId?: number;
 }
 
-export function FilmsCatalog({typeCatalog, title}: FilmsCatalogProps):ReactElement {
-  const filmsPerPage = typeCatalog === 'main' ? FILMS_PER_PAGE_MAIN : FILMS_PER_PAGE_RELATED;
+const FILMS_PER_PAGE_MAIN = 20;
+const FILMS_PER_PAGE_RELATED = 4;
 
-  const baseClass = 'catalog';
-  const classNames = typeCatalog === 'related' ? `${baseClass} ${baseClass}--like-this` : baseClass;
-
-  const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
-  const [displayedCount, setDisplayedCount] = useState<number>(filmsPerPage);
-
-  const catalogFilms: FilmCard[] = dataFilms.map((film) => ({
+const prepareCatalogFilms = (excludeId?: number, filterByGenre?: string): FilmCard[] => dataFilms
+  .filter((film) => film.filmId !== excludeId)
+  .filter((film) => !filterByGenre || normalizeGenre(film.genre) === filterByGenre)
+  .map((film) => ({
     filmId: film.filmId,
     preview: film.preview,
-    title: film.title
+    title: film.title,
   }));
 
+const prepareGenres = (): { genres: GenreWithAll[]; genreTexts: string[] } => {
   const uniqueGenres: string[] = Array.from(new Set(dataFilms.map((film) => normalizeGenre(film.genre))));
-
   const sortedGenres = sortGenresAlphabetically(uniqueGenres);
   const genres: GenreWithAll[] = ['all', ...sortedGenres];
   const genreTexts: string[] = genres.map((genre) => getGenrePlural(genre));
+  return { genres, genreTexts };
+};
 
-  const filteredFilms = activeGenre === 'all'
-    ? catalogFilms
-    : catalogFilms.filter((film) => {
-      const foundFilm = dataFilms.find((originalFilm) => originalFilm.filmId === film.filmId);
-      return foundFilm && normalizeGenre(foundFilm.genre) === activeGenre;
-    });
+function getCssClasses(isRelated: boolean): string {
+  return isRelated ? 'catalog catalog--like-this' : 'catalog';
+}
 
+const filterFilmsByGenre = (catalogFilms: FilmCard[], activeGenre: GenreWithAll): FilmCard[] => {
+  if (activeGenre === 'all') {
+    return catalogFilms;
+  }
+  return catalogFilms.filter((film) => {
+    const foundFilm = dataFilms.find((originalFilm) => originalFilm.filmId === film.filmId);
+    return foundFilm && normalizeGenre(foundFilm.genre) === activeGenre;
+  });
+};
+
+export function FilmsCatalog({isRelated = false, title, excludeFilmId}: FilmsCatalogProps):ReactElement {
+  const filmsPerPage = isRelated ? FILMS_PER_PAGE_RELATED : FILMS_PER_PAGE_MAIN;
+  const classNames = getCssClasses(isRelated);
+
+  const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
+  const [displayedCount, setDisplayedCount] = useState(filmsPerPage);
+
+  // Для связанных каталогов исключаем текущий фильм и фильтруем по его жанру
+  const currentFilm = isRelated && excludeFilmId ? dataFilms.find((film) => film.filmId === excludeFilmId) : null;
+  const currentGenre = currentFilm ? normalizeGenre(currentFilm.genre) : undefined;
+
+  // Сначала пробуем найти фильмы по жанру
+  let catalogFilms = prepareCatalogFilms(
+    isRelated ? excludeFilmId : undefined,
+    isRelated ? currentGenre : undefined
+  );
+
+  // Если для связанных фильмов ничего не найдено по жанру, показываем все (кроме текущего)
+  if (isRelated && catalogFilms.length === 0 && excludeFilmId) {
+    catalogFilms = prepareCatalogFilms(excludeFilmId, undefined);
+  }
+  const { genres, genreTexts } = prepareGenres();
+
+  const filteredFilms = filterFilmsByGenre(catalogFilms, activeGenre);
   const displayedFilms = filteredFilms.slice(0, displayedCount);
 
   const handleShowMore = () => {
@@ -56,15 +84,15 @@ export function FilmsCatalog({typeCatalog, title}: FilmsCatalogProps):ReactEleme
   }, [activeGenre, filmsPerPage]);
 
   return (
-    <section className={classNames} >
+    <section className={classNames}>
       <h2 className={`catalog__title ${title ? '' : 'visually-hidden'}`}>
         {title || 'Catalog'}
       </h2>
-      {(typeCatalog !== 'related') && (
+      {!isRelated && (
         <FilmsGenresList genres={genres} genreTexts={genreTexts} activeGenre={activeGenre} onGenreChange={setActiveGenre}/>
       )}
       <FilmsCatalogList films={displayedFilms} />
-      {(filteredFilms.length > displayedCount) && (typeCatalog !== 'related') && (
+      {(filteredFilms.length > displayedCount) && !isRelated && (
         <div className="catalog__more">
           <button className="catalog__button" type="button" onClick={handleShowMore}>
             Show more

@@ -1,1 +1,0 @@
-export {FilmsCatalogLikeThis} from './FilmsCatalogLikeThis';

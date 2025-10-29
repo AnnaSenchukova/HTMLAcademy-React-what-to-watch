@@ -6,7 +6,7 @@ import {getGenreSingular} from '../../utils/genreUtils';
 
 import {Page404} from '../Page404';
 import {Header} from '../../components/Header';
-import {FilmsCatalogLikeThis} from '../../components/FilmsCatalogLikeThis';
+import {FilmsCatalog} from '../../components/FilmsCatalog';
 import {Footer} from '../../components/Footer';
 import {FilmButtons} from '../../components/FilmButtons';
 import {FilmInfo} from '../../components/FilmInfo';
@@ -48,7 +48,7 @@ export function Films(): ReactElement {
         </div>
       </section>
       <div className="page-content">
-        <FilmsCatalogLikeThis />
+        <FilmsCatalog isRelated title="More like this" excludeFilmId={film.filmId} />
         <Footer />
       </div>
     </>
