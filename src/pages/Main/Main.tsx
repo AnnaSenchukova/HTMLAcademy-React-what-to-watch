@@ -16,7 +16,7 @@ export function Main(): ReactElement {
         </div>
       </FilmsCardPromo>
       <div className="page-content">
-        <FilmsCatalog />
+        <FilmsCatalog typeCatalog="main" />
         <Footer />
       </div>
     </>

@@ -6,14 +6,25 @@ import {getGenrePlural, normalizeGenre, sortGenresAlphabetically} from '../../ut
 import {FilmsGenresList} from '../FilmsGenresList';
 import {FilmsCatalogList} from '../FilmsCatalogList';
 
-const FILMS_PER_PAGE = 20;
+const FILMS_PER_PAGE_MAIN = 20;
+const FILMS_PER_PAGE_RELATED = 4;
 
 type NormalizedGenre = string;
 type GenreWithAll = 'all' | NormalizedGenre;
 
-export function FilmsCatalog():ReactElement {
+type FilmsCatalogProps = {
+  typeCatalog: 'main' | 'related';
+  title?: string;
+}
+
+export function FilmsCatalog({typeCatalog, title}: FilmsCatalogProps):ReactElement {
+  const filmsPerPage = typeCatalog === 'main' ? FILMS_PER_PAGE_MAIN : FILMS_PER_PAGE_RELATED;
+
+  const baseClass = 'catalog';
+  const classNames = typeCatalog === 'related' ? `${baseClass} ${baseClass}--like-this` : baseClass;
+
   const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
-  const [displayedCount, setDisplayedCount] = useState<number>(FILMS_PER_PAGE);
+  const [displayedCount, setDisplayedCount] = useState<number>(filmsPerPage);
 
   const catalogFilms: FilmCard[] = dataFilms.map((film) => ({
     filmId: film.filmId,
@@ -37,19 +48,23 @@ export function FilmsCatalog():ReactElement {
   const displayedFilms = filteredFilms.slice(0, displayedCount);
 
   const handleShowMore = () => {
-    setDisplayedCount((prev) => prev + FILMS_PER_PAGE);
+    setDisplayedCount((prev) => prev + filmsPerPage);
   };
 
   useEffect(() => {
-    setDisplayedCount(FILMS_PER_PAGE);
-  }, [activeGenre]);
+    setDisplayedCount(filmsPerPage);
+  }, [activeGenre, filmsPerPage]);
 
   return (
-    <section className="catalog">
-      <h2 className="catalog__title visually-hidden">Catalog</h2>
-      <FilmsGenresList genres={genres} genreTexts={genreTexts} activeGenre={activeGenre} onGenreChange={setActiveGenre}/>
+    <section className={classNames} >
+      <h2 className={`catalog__title ${title ? '' : 'visually-hidden'}`}>
+        {title || 'Catalog'}
+      </h2>
+      {(typeCatalog !== 'related') && (
+        <FilmsGenresList genres={genres} genreTexts={genreTexts} activeGenre={activeGenre} onGenreChange={setActiveGenre}/>
+      )}
       <FilmsCatalogList films={displayedFilms} />
-      {filteredFilms.length > displayedCount && (
+      {(filteredFilms.length > displayedCount) && (typeCatalog !== 'related') && (
         <div className="catalog__more">
           <button className="catalog__button" type="button" onClick={handleShowMore}>
             Show more
