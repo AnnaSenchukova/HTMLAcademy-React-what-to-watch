@@ -1,21 +1,17 @@
 import {ReactElement} from 'react';
+import type { FilmCard } from '../../types';
+import {FilmImage} from '../FilmImage';
 
-type FilmsCardProps = {
-  preview: string;
-  title: string;
-  link: string;
-}
+type FilmsCardProps = FilmCard;
 
-export function FilmsCard({preview, title, link}:FilmsCardProps):ReactElement {
-  const imagePath = `img/${preview}.jpg`;
+export function FilmsCard({filmId, preview, title, ...rest}:FilmsCardProps):ReactElement {
+  const filmLink = `/films/${filmId}`;
 
   return (
     <article className="film-card film-card--small catalog__films-card">
-      <div className="film-card__preview">
-        <img src={imagePath} alt={title} width={280} height={175} />
-      </div>
+      <FilmImage variant='preview' name={preview} title={title} />
       <h3 className="film-card__title film-card__title--small">
-        <a className="film-card__link film-card__link--small" href={link}>{title}</a>
+        <a className="film-card__link film-card__link--small" href={filmLink}>{title}</a>
       </h3>
     </article>
   );

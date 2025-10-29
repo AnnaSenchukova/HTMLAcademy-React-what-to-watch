@@ -1,0 +1,56 @@
+import { Genre, GenreWithAll } from '../types/film';
+
+const BASE_GENRE_NAMES = {
+  'drama': 'Drama',
+  'comedy': 'Comedy',
+  'crime': 'Crime',
+  'documentary': 'Documentary',
+  'horror': 'Horror',
+  'family': 'Kids & Family',
+  'romance': 'Romance',
+  'sci-fi': 'Sci-Fi',
+  'thriller': 'Thriller',
+  'fantasy': 'Fantasy',
+  'biography': 'Biography',
+  'adventure': 'Adventure'
+} as const;
+
+const GENRE_ALIASES = {
+  'kids': 'family',
+  'children': 'family',
+  'kid': 'family',
+  'child': 'family',
+  'sci-fiction': 'sci-fi',
+  'science-fiction': 'sci-fi',
+  'biopic': 'biography',
+  'biographical': 'biography'
+} as const;
+
+const PLURAL_EXCEPTIONS = {
+  'comedy': 'Comedies',
+  'biography': 'Biographies',
+  'thriller': 'Thrillers',
+  'adventure': 'Adventures',
+  'drama': 'Dramas'
+} as const;
+
+function normalizeGenre(genre: GenreWithAll | string): string {
+  const normalized = genre.toLowerCase();
+  return GENRE_ALIASES[normalized as keyof typeof GENRE_ALIASES] || normalized;
+}
+
+export function getGenreSingular(genre: Genre): string {
+  const normalizedGenre = normalizeGenre(genre);
+  return BASE_GENRE_NAMES[normalizedGenre as keyof typeof BASE_GENRE_NAMES] || normalizedGenre;
+}
+
+export function getGenrePlural(genre: GenreWithAll): string {
+  if (genre === 'all'){ return 'All genres'; }
+
+  const normalizedGenre = normalizeGenre(genre);
+
+  const pluralException = PLURAL_EXCEPTIONS[normalizedGenre as keyof typeof PLURAL_EXCEPTIONS];
+  if (pluralException){ return pluralException;}
+
+  return BASE_GENRE_NAMES[normalizedGenre as keyof typeof BASE_GENRE_NAMES] || normalizedGenre;
+}

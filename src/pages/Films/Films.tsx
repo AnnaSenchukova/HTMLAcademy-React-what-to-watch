@@ -2,6 +2,7 @@ import {ReactElement} from 'react';
 import { useParams } from 'react-router-dom';
 
 import {dataFilms} from '../../config/dataFilms';
+import {getGenreSingular} from '../../utils/genreUtils';
 
 import {Page404} from '../Page404';
 import {Header} from '../../components/Header';
@@ -32,7 +33,7 @@ export function Films(): ReactElement {
             <div className="film-card__desc">
               <h2 className="film-card__title">{film.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__genre">{getGenreSingular(film.genre)}</span>
                 <span className="film-card__year">{film.releaseDate}</span>
               </p>
               <FilmButtons filmId={id} />

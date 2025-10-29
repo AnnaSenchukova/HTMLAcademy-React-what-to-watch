@@ -2,7 +2,6 @@ export const dataFilms = [
   {
     filmId: 1,
     title: 'The Grand Budapest Hotel',
-    link: 'film-page.html',
     preview: 'the-grand-budapest-hotel',
     genre: 'drama',
     releaseDate: 2014,
@@ -15,7 +14,6 @@ export const dataFilms = [
   {
     filmId: 2,
     title: 'Fantastic Beasts: The Crimes of Grindelwald',
-    link: 'film-page.html',
     preview: 'fantastic-beasts-the-crimes-of-grindelwald',
     genre: 'fantasy',
     releaseDate: 2018,
@@ -28,7 +26,6 @@ export const dataFilms = [
   {
     filmId: 3,
     title: 'Bohemian Rhapsody',
-    link: 'film-page.html',
     preview: 'bohemian-rhapsody',
     genre: 'biography',
     releaseDate: 2018,
@@ -40,7 +37,6 @@ export const dataFilms = [
   {
     filmId: 4,
     title: 'Macbeth',
-    link: 'film-page.html',
     preview: 'macbeth',
     genre: 'drama',
     releaseDate: 2015,
@@ -53,7 +49,6 @@ export const dataFilms = [
   {
     filmId: 5,
     title: 'Aviator',
-    link: 'film-page.html',
     preview: 'aviator',
     genre: 'biography',
     releaseDate: 2004,
@@ -65,7 +60,6 @@ export const dataFilms = [
   {
     filmId: 6,
     title: 'We need to talk about Kevin',
-    link: 'film-page.html',
     preview: 'we-need-to-talk-about-kevin',
     genre: 'drama',
     releaseDate: 2011,
@@ -78,7 +72,6 @@ export const dataFilms = [
   {
     filmId: 7,
     title: 'What We Do in the Shadows',
-    link: 'film-page.html',
     preview: 'what-we-do-in-the-shadows',
     genre: 'comedy',
     releaseDate: 2014,
@@ -91,7 +84,6 @@ export const dataFilms = [
   {
     filmId: 8,
     title: 'Revenant',
-    link: 'film-page.html',
     preview: 'revenant',
     genre: 'adventure',
     releaseDate: 2015,
@@ -103,7 +95,6 @@ export const dataFilms = [
   {
     filmId: 9,
     title: 'Johnny English',
-    link: 'film-page.html',
     preview: 'johnny-english',
     genre: 'comedy',
     releaseDate: 2003,
@@ -115,13 +106,23 @@ export const dataFilms = [
   {
     filmId: 10,
     title: 'Shutter Island',
-    link: 'film-page.html',
     preview: 'shutter-island',
     genre: 'thriller',
     releaseDate: 2010,
     runTime: '2h 18m',
     overview: [
       'In 1954, a U.S. Marshal investigates the disappearance of a murderer who escaped from a hospital for the criminally insane.'
+    ],
+  },
+  {
+    filmId: 11,
+    title: 'The Conjuring',
+    preview: 'the-conjuring',
+    genre: 'horror',
+    releaseDate: 2013,
+    runTime: '1h 52m',
+    overview: [
+      'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.'
     ],
   }
 ];

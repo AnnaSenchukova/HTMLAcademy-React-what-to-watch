@@ -1,4 +1,5 @@
 import {ReactElement, PropsWithChildren} from 'react';
+import {getGenreSingular} from '../../utils/genreUtils';
 
 type FilmsCardPromoProps = PropsWithChildren<{
   preview: string;
@@ -22,7 +23,7 @@ export function FilmsCardPromo({preview, title, genre, releaseDate, children}: F
           <div className="film-card__desc">
             <h2 className="film-card__title">{title}</h2>
             <p className="film-card__meta">
-              <span className="film-card__genre">{genre}</span>
+              <span className="film-card__genre">{getGenreSingular(genre)}</span>
               <span className="film-card__year">{releaseDate}</span>
             </p>
             <div className="film-card__buttons">
