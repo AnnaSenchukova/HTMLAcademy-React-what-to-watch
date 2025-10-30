@@ -522,6 +522,8 @@ main {
     font-weight: bold; }
     .catalog__genres-item--active .catalog__genres-link::after {
       display: block; }
+  .catalog__genres-item:first-child .catalog__genres-link{
+    text-transform: none; }
   .catalog__genres-item:last-child {
     margin-right: 0; }
 
@@ -529,6 +531,7 @@ main {
   display: block;
   color: #DFCF77;
   text-decoration: none;
+  text-transform: capitalize;
   position: relative;
   padding-bottom: 15px;
   -webkit-transition: font-weight;
@@ -644,12 +647,11 @@ main {
   .film-card--full {
     padding-bottom: 45px;
     min-height: 100vh; }
-
-.film-card__hero {
-  position: relative;
-  z-index: 1;
-  min-height: 555px;
-  padding-bottom: 210px; }
+  .film-card--full .film-card__hero {
+    position: relative;
+    z-index: 1;
+    min-height: 555px;
+    padding-bottom: 210px; }
 
 .film-card__bg {
   position: absolute;
@@ -731,7 +733,7 @@ main {
   font-family: "Arial Black", sans-serif;
   font-size: 32px;
   line-height: 45px;
-  margin: 0 0 7px; }
+  margin: 0 0 7px;}
 
 .film-card__meta {
   margin: 0;
@@ -745,16 +747,16 @@ main {
 .film-card__genre::after {
   content: '·';
   margin-left: 4px;
-  margin-right: 4px; }
+  margin-right: 4px;}
 
 .film-card__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
-.film-card__button {
+.film-card__btn {
   margin-right: 14px; }
-  .film-card__button:last-child {
+  .film-card__btn:last-child {
     margin-right: 0; }
 
 .film-card__translate-top {
@@ -781,13 +783,35 @@ main {
   font-size: 19px;
   line-height: 27px; }
 
-.film-card__director {
-  line-height: 21px;
-  color: rgba(0, 0, 0, 0.4); }
-
-.film-card__starring {
+.film-card__personalities,
+.film-card__details-item {
+  font-weight: 700;
+  font-size: 19px;
   line-height: 24px;
-  color: rgba(0, 0, 0, 0.4); }
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.film-card__personalities--details,
+.film-card__details-item {
+  line-height: 30px;
+}
+
+.film-card__personalities--details .film-card__personalities-role,
+.film-card__details-item .film-card__details-name {
+  display: block;
+  color: #252525;
+}
+.film-card__personalities--details .film-card__personalities-separator {
+  display: none;
+}
+
+.film-card__personalities--details .film-card__personalities-name,
+.film-card__details-item .film-card__details-value {
+  display: block;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #131313;
+}
 
 .film-card__row {
   display: -webkit-box;
@@ -802,18 +826,6 @@ main {
   margin-right: 35px; }
   .film-card__text-col:last-child {
     margin-right: 0; }
-
-.film-card__details-item {
-  font-size: 19px;
-  line-height: 30px; }
-
-.film-card__details-name {
-  display: block;
-  color: #252525;
-  font-weight: bold; }
-
-.film-card__details-value {
-  color: #131313; }
 
 .film-card__reviews {
   padding-top: 20px; }
@@ -851,6 +863,7 @@ main {
   display: block;
   color: #EEE5B5;
   text-decoration: none;
+  text-transform: capitalize;
   position: relative;
   padding-bottom: 19px; }
   .film-nav__link::after {
@@ -903,6 +916,62 @@ main {
 
 .film-rating__count {
   color: #382C2A; }
+
+.film-card--small {
+  padding-bottom: 0;
+  color: #C9B37E;
+  background: transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: 0.2s -webkit-transform;
+  transition: 0.2s -webkit-transform;
+  transition: 0.2s transform;
+  transition: 0.2s transform, 0.2s -webkit-transform; }
+.film-card--small:hover {
+  z-index: 3;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2); }
+.film-card--small .film-card__title {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 15px;
+  margin: 0;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 500; }
+.film-card--small .film-card__link {
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  color: inherit; }
+
+
+.film-card__preview {
+  position: relative;
+  z-index: 1;
+  height: 175px; }
+.film-card__preview img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  font-family: "object-fit:cover";
+  object-fit: cover; }
+.film-card__preview::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, rgba(0, 0, 0, 0)), color-stop(97%, rgba(0, 0, 0, 0.63)));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.63) 97%); }
 
 .page-content {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#180202), to(#000000));
@@ -1282,59 +1351,6 @@ main {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 200px; }
-
-.small-film-card {
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-  -webkit-transition: 0.2s -webkit-transform;
-  transition: 0.2s -webkit-transform;
-  transition: 0.2s transform;
-  transition: 0.2s transform, 0.2s -webkit-transform; }
-  .small-film-card:hover {
-    z-index: 3;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2); }
-  .small-film-card img {
-    vertical-align: top;
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       font-family: "object-fit:cover";
-       object-fit: cover; }
-
-.small-film-card__image {
-  position: relative;
-  z-index: 1;
-  height: 175px; }
-  .small-film-card__image::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, rgba(0, 0, 0, 0)), color-stop(97%, rgba(0, 0, 0, 0.63)));
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.63) 97%); }
-
-.small-film-card__title {
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px 15px;
-  margin: 0;
-  font-size: 17px;
-  line-height: 20px;
-  font-weight: 500; }
-
-.small-film-card__link {
-  display: inline-block;
-  vertical-align: top;
-  text-decoration: none;
-  color: inherit; }
 
 .user-block {
   display: flex;

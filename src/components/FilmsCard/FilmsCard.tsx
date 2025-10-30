@@ -1,22 +1,46 @@
-import {ReactElement} from 'react';
+import {ReactElement, PropsWithChildren} from 'react';
 
-type FilmsCardProps = {
-  preview: string;
-  title: string;
-  link: string;
-}
+import {getGenreSingular} from '../../utils/genreUtils';
+import type {Film} from '../../types/film';
 
-export function FilmsCard({preview, title, link}:FilmsCardProps):ReactElement {
-  const imagePath = `img/${preview}.jpg`;
+import {FilmImage} from '../FilmImage';
+import {FilmButtons} from '../FilmButtons';
+import {FilmInfo} from '../FilmInfo';
+
+type FilmsCardPromoProps = PropsWithChildren<{
+  isPromoFilm?: boolean;
+  film: Film;
+}>
+
+export function FilmsCard({isPromoFilm, film, children}: FilmsCardPromoProps): ReactElement {
 
   return (
-    <article className="small-film-card catalog__films-card">
-      <div className="small-film-card__image">
-        <img src={imagePath} alt={title} width={280} height={175} />
+    <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
+      <div className="film-card__hero">
+        <div className="film-card__head">
+          {children}
+        </div>
+        <FilmImage variant="bg" name={film.preview} title={film.title}/>
+        <div className="film-card__wrap film-card__info">
+          {isPromoFilm && (
+            <FilmImage variant="poster" name={film.preview} title={film.title}/>
+          )}
+          <div className="film-card__desc">
+            <h2 className="film-card__title">{film.title}</h2>
+            <p className="film-card__meta">
+              <span className="film-card__genre">{getGenreSingular(film.genre)}</span>
+              <span className="film-card__year">{film.releaseDate}</span>
+            </p>
+            <FilmButtons filmId={String(film.filmId)} isFull={!isPromoFilm}/>
+          </div>
+        </div>
       </div>
-      <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href={link}>{title}</a>
-      </h3>
-    </article>
+      {!isPromoFilm && (
+        <div className={`film-card__wrap film-card__info ${!isPromoFilm ? 'film-card__translate-top' : ''}`}>
+          <FilmImage variant="poster" name={film.preview} title={film.title} classModSize='big'/>
+          <FilmInfo filmId={film.filmId}/>
+        </div>
+      )}
+    </section>
   );
 }

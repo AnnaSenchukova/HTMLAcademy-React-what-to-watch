@@ -19,12 +19,12 @@ function App(): JSX.Element {
         <Route index path={AppRoute.Root} element={<Main />} />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
         <Route path={AppRoute.MyList} element={
-          <ProtectedRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+          <ProtectedRoute authorizationStatus={AuthorizationStatus.Auth}>
             <MyList />
           </ProtectedRoute>
         }
         />
-        <Route path={AppRoute.Films} element={<Films />}>
+        <Route path={AppRoute.Films}>
           <Route index element={<Films />} />
           <Route path={AppRoute.AddReview} element={
             <ProtectedRoute authorizationStatus={AuthorizationStatus.Auth}>

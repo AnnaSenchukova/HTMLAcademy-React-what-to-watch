@@ -1,0 +1,1 @@
+export { FilmPersonalities } from './FilmPersonalities';

@@ -1,1 +1,0 @@
-export {FilmsCardPromo} from './FilmsCardPromo';
