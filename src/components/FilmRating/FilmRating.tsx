@@ -11,18 +11,16 @@ const getRatingText = (rating: number): string => {
     case rating < 0:
     case rating > 10:
       return 'Invalid rating';
-    case rating >= 9.0:
+    case rating === 10:
       return 'Awesome';
-    case rating >= 8.1:
+    case rating >= 8:
       return 'Very good';
-    case rating >= 7.0:
+    case rating >= 5:
       return 'Good';
-    case rating >= 5.0:
+    case rating >= 3:
       return 'Normal';
-    case rating >= 4.0:
+    case rating >= 0:
       return 'Bad';
-    case rating > 0:
-      return 'Awful';
 
     default:
       return 'No ratings';

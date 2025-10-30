@@ -15,7 +15,7 @@ type FilmsCatalogProps = {
   title?: string;
 }
 
-const FILMS_PER_PAGE_MAIN = 20;
+const FILMS_PER_PAGE_MAIN = 8;
 const FILMS_PER_PAGE_RELATED = 4;
 
 const getFilmRating = (filmId: number): number => {
