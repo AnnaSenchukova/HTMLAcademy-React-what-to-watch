@@ -12,11 +12,10 @@ type FilmsCardPromoProps = PropsWithChildren<{
   film: Film;
 }>
 
-export function FilmsCardPromo({isPromoFilm, film, children}: FilmsCardPromoProps): ReactElement {
+export function FilmsCard({isPromoFilm, film, children}: FilmsCardPromoProps): ReactElement {
 
   return (
     <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
-
       <div className="film-card__hero">
         <div className="film-card__head">
           {children}

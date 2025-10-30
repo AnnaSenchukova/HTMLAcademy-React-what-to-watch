@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 
 import {dataFilms} from '../../config/dataFilms';
 import {Header} from '../../components/Header';
-import {FilmsCardPromo} from '../../components/FilmsCardPromo';
+import {FilmsCard} from '../../components/FilmsCard';
 import {FilmsCatalog} from '../../components/FilmsCatalog';
 import {Footer} from '../../components/Footer';
 
@@ -13,9 +13,9 @@ export function Films(): ReactElement | null {
 
   return film ? (
     <>
-      <FilmsCardPromo film={film}>
+      <FilmsCard film={film}>
         <Header />
-      </FilmsCardPromo>
+      </FilmsCard>
       <div className="page-content">
         <FilmsCatalog isRelated title="More like this" />
         <Footer />
