@@ -12,18 +12,19 @@ type FilmsCardPromoProps = PropsWithChildren<{
   film: Film;
 }>
 
-export function FilmsCardPromo({isPromoFilm, film, children}:FilmsCardPromoProps): ReactElement {
+export function FilmsCardPromo({isPromoFilm, film, children}: FilmsCardPromoProps): ReactElement {
 
   return (
     <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
+
       <div className="film-card__hero">
         <div className="film-card__head">
           {children}
         </div>
-        <FilmImage variant='bg' name={film.preview} title={film.title} />
+        <FilmImage variant="bg" name={film.preview} title={film.title}/>
         <div className="film-card__wrap film-card__info">
           {isPromoFilm && (
-            <FilmImage variant='poster' name={film.preview} title={film.title}/>
+            <FilmImage variant="poster" name={film.preview} title={film.title}/>
           )}
           <div className="film-card__desc">
             <h2 className="film-card__title">{film.title}</h2>
@@ -31,16 +32,14 @@ export function FilmsCardPromo({isPromoFilm, film, children}:FilmsCardPromoProps
               <span className="film-card__genre">{getGenreSingular(film.genre)}</span>
               <span className="film-card__year">{film.releaseDate}</span>
             </p>
-            <FilmButtons filmId={String(film.filmId)} isFull={!isPromoFilm} />
+            <FilmButtons filmId={String(film.filmId)} isFull={!isPromoFilm}/>
           </div>
         </div>
       </div>
       {!isPromoFilm && (
-        <div className={`film-card__wrap ${!isPromoFilm ? 'film-card__translate-top' : ''}`}>
-          <div className="film-card__info">
-            <FilmImage variant='poster' name={film.preview} title={film.title}{...(!isPromoFilm && { classModSize: 'big' })}/>
-            <FilmInfo filmId={film.filmId}/>
-          </div>
+        <div className={`film-card__wrap film-card__info ${!isPromoFilm ? 'film-card__translate-top' : ''}`}>
+          <FilmImage variant="poster" name={film.preview} title={film.title} classModSize='big'/>
+          <FilmInfo filmId={film.filmId}/>
         </div>
       )}
     </section>
