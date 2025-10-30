@@ -13,7 +13,6 @@ type GenreWithAll = 'all' | NormalizedGenre;
 type FilmsCatalogProps = {
   isRelated?: boolean;
   title?: string;
-  excludeFilmId?: number;
 }
 
 const FILMS_PER_PAGE_MAIN = 20;
@@ -24,8 +23,7 @@ const getFilmRating = (filmId: number): number => {
   return filmRating?.value || 0;
 };
 
-const prepareCatalogFilms = (excludeId?: number, filterByGenre?: string): FilmCard[] => dataFilms
-  .filter((film) => film.filmId !== excludeId)
+const prepareCatalogFilms = (filterByGenre?: string): FilmCard[] => dataFilms
   .filter((film) => !filterByGenre || normalizeGenre(film.genre) === filterByGenre)
   .sort((a, b) => getFilmRating(b.filmId) - getFilmRating(a.filmId)) // Сортировка по рейтингу от лучших к худшим
   .map((film) => ({
@@ -56,24 +54,14 @@ const filterFilmsByGenre = (catalogFilms: FilmCard[], activeGenre: GenreWithAll)
   });
 };
 
-export function FilmsCatalog({isRelated = false, title, excludeFilmId}: FilmsCatalogProps):ReactElement {
+export function FilmsCatalog({isRelated = false, title}: FilmsCatalogProps):ReactElement {
   const filmsPerPage = isRelated ? FILMS_PER_PAGE_RELATED : FILMS_PER_PAGE_MAIN;
   const classNames = getCssClasses(isRelated);
 
   const [activeGenre, setActiveGenre] = useState<GenreWithAll>('all');
   const [displayedCount, setDisplayedCount] = useState(filmsPerPage);
 
-  const currentFilm = isRelated && excludeFilmId ? dataFilms.find((film) => film.filmId === excludeFilmId) : null;
-  const currentGenre = currentFilm ? normalizeGenre(currentFilm.genre) : undefined;
-
-  let catalogFilms = prepareCatalogFilms(
-    isRelated ? excludeFilmId : undefined,
-    isRelated ? currentGenre : undefined
-  );
-
-  if (isRelated && catalogFilms.length === 0 && excludeFilmId) {
-    catalogFilms = prepareCatalogFilms(excludeFilmId, undefined);
-  }
+  const catalogFilms = prepareCatalogFilms();
   const { genres, genreTexts } = prepareGenres();
 
   const filteredFilms = filterFilmsByGenre(catalogFilms, activeGenre);

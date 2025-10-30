@@ -18,11 +18,7 @@ export function FilmInfo({ filmId }: FilmInfoProps): ReactElement {
 
   return (
     <div className="film-card__desc">
-      <FilmInfoTab
-        tabs={tabs}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
+      <FilmInfoTab tabs={tabs} activeTab={activeTab} onTabChange={handleTabChange}/>
       <FilmInfoContent activeTab={activeTab} filmId={filmId} />
     </div>
   );

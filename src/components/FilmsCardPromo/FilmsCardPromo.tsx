@@ -1,50 +1,48 @@
 import {ReactElement, PropsWithChildren} from 'react';
+
 import {getGenreSingular} from '../../utils/genreUtils';
+import type {Film} from '../../types/film';
+
+import {FilmImage} from '../FilmImage';
+import {FilmButtons} from '../FilmButtons';
+import {FilmInfo} from '../FilmInfo';
 
 type FilmsCardPromoProps = PropsWithChildren<{
-  preview: string;
-  title: string;
-  genre: string;
-  releaseDate: number;
+  isPromoFilm?: boolean;
+  film: Film;
 }>
 
-export function FilmsCardPromo({preview, title, genre, releaseDate, children}: FilmsCardPromoProps): ReactElement {
+export function FilmsCardPromo({isPromoFilm, film, children}:FilmsCardPromoProps): ReactElement {
+
   return (
-    <section className="film-card">
+    <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
       <div className="film-card__hero">
-        {children}
-        <div className="film-card__bg">
-          <img src={`img/bg-${preview}.jpg`} alt={title} />
+        <div className="film-card__head">
+          {children}
         </div>
-        <div className="film-card__wrap">
-          <div className="film-card__info">
-            <div className="film-card__poster">
-              <img src={`img/${preview}-poster.jpg`} alt={`${title} poster`} width={218} height={327} />
-            </div>
-            <div className="film-card__desc">
-              <h2 className="film-card__title">{title}</h2>
-              <p className="film-card__meta">
-                <span className="film-card__genre">{getGenreSingular(genre)}</span>
-                <span className="film-card__year">{releaseDate}</span>
-              </p>
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width={19} height={19}>
-                    <use xlinkHref="#play-s" />
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width={19} height={20}>
-                    <use xlinkHref="#add" />
-                  </svg>
-                  <span>My list</span>
-                </button>
-              </div>
-            </div>
+        <FilmImage variant='bg' name={film.preview} title={film.title} />
+        <div className="film-card__wrap film-card__info">
+          {isPromoFilm && (
+            <FilmImage variant='poster' name={film.preview} title={film.title}/>
+          )}
+          <div className="film-card__desc">
+            <h2 className="film-card__title">{film.title}</h2>
+            <p className="film-card__meta">
+              <span className="film-card__genre">{getGenreSingular(film.genre)}</span>
+              <span className="film-card__year">{film.releaseDate}</span>
+            </p>
+            <FilmButtons filmId={String(film.filmId)} isFull={!isPromoFilm} />
           </div>
         </div>
       </div>
+      {!isPromoFilm && (
+        <div className={`film-card__wrap ${!isPromoFilm ? 'film-card__translate-top' : ''}`}>
+          <div className="film-card__info">
+            <FilmImage variant='poster' name={film.preview} title={film.title}{...(!isPromoFilm && { classModSize: 'big' })}/>
+            <FilmInfo filmId={film.filmId}/>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

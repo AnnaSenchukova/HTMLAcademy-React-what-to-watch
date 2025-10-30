@@ -12,7 +12,7 @@ export function Header({title, isUserBlock = true, children}:HeaderProps): React
   return (
     <header className="page-header">
       <Logo />
-      {title && <h1 className="page-title user-page__title">{title}</h1>}
+      {title && <h1 className="page-title user-page__title visually-hidden">{title}</h1>}
       {children}
       {isUserBlock && <UserBlock />}
     </header>
