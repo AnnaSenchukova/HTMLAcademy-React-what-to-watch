@@ -1027,7 +1027,7 @@ main {
      font-family: "object-fit:cover";
      object-fit: cover; }
 
-.player__exit {
+.btn--exit {
   display: block;
   position: absolute;
   z-index: 2;
@@ -1042,6 +1042,7 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   width: 93px;
+  min-width: 0;
   text-align: center;
   cursor: pointer; }
 
@@ -1094,8 +1095,12 @@ main {
   font-size: 14px;
   color: #FFF9D9; }
 
-.player__full-screen {
-  margin-left: auto; }
+.btn--full-screen {
+  min-width: 0;
+  margin-left: auto;
+  padding: 0;}
+.btn--full-screen span {
+  font-size: 0;}
 
 .player__toggler {
   display: block;
@@ -1111,9 +1116,10 @@ main {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.player__play {
-  display: block;
+.btn--play,
+.btn--pause {
   width: 26px;
+  min-width: 0;
   height: 26px;
   font-size: 0;
   border: none;
@@ -1124,10 +1130,13 @@ main {
   transition: 0.2s -webkit-transform;
   transition: 0.2s transform;
   transition: 0.2s transform, 0.2s -webkit-transform; }
-  .player__play img,
-  .player__play svg {
+  .btn--play img,
+  .btn--play svg {
     vertical-align: top; }
-  .player__play:hover {
+  .btn--play span {
+    font-size: 0;
+  }
+  .btn--play:hover {
     -webkit-transform: scale(1.1);
             transform: scale(1.1); }
 

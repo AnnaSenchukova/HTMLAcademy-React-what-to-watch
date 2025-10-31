@@ -6,6 +6,8 @@ export type Film = {
   releaseDate: number;
   runTime: string;
   overview: string[];
+  videoPreview: string;
+  videoMovie?: string;
 };
 
 export type FilmCard = {

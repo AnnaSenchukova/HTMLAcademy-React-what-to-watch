@@ -10,7 +10,8 @@ export const dataFilms = [
       'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.',
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 2,
@@ -23,7 +24,8 @@ export const dataFilms = [
       'In an effort to thwart Grindelwald\'s plans of raising pure-blood wizards to rule over all non-magical beings, Albus Dumbledore enlists his former student Newt Scamander.',
       'Lines are drawn as love and loyalty are tested, even among the truest friends and family, in an increasingly divided wizarding world.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 3,
@@ -35,7 +37,8 @@ export const dataFilms = [
     overview: [
       'The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 4,
@@ -48,7 +51,8 @@ export const dataFilms = [
       'Macbeth, a duke of Scotland, receives a prophecy from a trio of witches that one day he will become King of Scotland.',
       'Consumed by ambition and spurred to action by his wife, Macbeth murders his king and takes the throne for himself.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 5,
@@ -60,7 +64,8 @@ export const dataFilms = [
     overview: [
       'A biopic depicting the early years of legendary Director and aviator Howard Hughes\' career from the late 1920s to the mid 1940s.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 6,
@@ -73,7 +78,8 @@ export const dataFilms = [
       'Kevin\'s mother struggles to love her strange child, despite the increasingly dangerous things he says and does as he grows up.',
       'But Kevin is just getting started, and his final act will be beyond anything anyone imagined.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 7,
@@ -86,7 +92,8 @@ export const dataFilms = [
       'Viago, Deacon, and Vladislav are vampires who are finding that modern life has them struggling with the mundane.',
       'Like paying rent, keeping up with the chore wheel, trying to get into nightclubs, and overcoming flatmate conflicts.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 8,
@@ -98,7 +105,8 @@ export const dataFilms = [
     overview: [
       'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 9,
@@ -110,7 +118,8 @@ export const dataFilms = [
     overview: [
       'After a sudden attack on MI5, Johnny English, Britain\'s most confident, yet unintelligent spy, becomes the country\'s only spy.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 10,
@@ -122,7 +131,8 @@ export const dataFilms = [
     overview: [
       'In 1954, a U.S. Marshal investigates the disappearance of a murderer who escaped from a hospital for the criminally insane.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 11,
@@ -134,7 +144,8 @@ export const dataFilms = [
     overview: [
       'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 12,
@@ -147,7 +158,8 @@ export const dataFilms = [
       'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.',
       'Woody and Buzz must work together to escape from their neighbor\'s house and return to their owner Andy.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 13,
@@ -160,7 +172,8 @@ export const dataFilms = [
       'When Woody is stolen by a toy collector, Buzz and his friends set out on a rescue mission to save Woody before he becomes a museum toy property.',
       'Along the way, Woody discovers his origins and must decide between staying with his new toy family or returning to Andy.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 14,
@@ -173,7 +186,8 @@ export const dataFilms = [
       'Two bikers become vigilantes and take on a corrupt businessman who is trying to take over their favorite bar.',
       'In the spirit of classic westerns, they fight against injustice in modern-day Los Angeles with motorcycles instead of horses.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 15,
@@ -186,7 +200,8 @@ export const dataFilms = [
       'Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard.',
       'Deckard has been missing for thirty years in a world where synthetic humans known as replicants are integrated into society.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 16,
@@ -198,7 +213,8 @@ export const dataFilms = [
     overview: [
       'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 17,
@@ -210,7 +226,8 @@ export const dataFilms = [
     overview: [
       'Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 18,
@@ -222,7 +239,8 @@ export const dataFilms = [
     overview: [
       'Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 19,
@@ -234,7 +252,8 @@ export const dataFilms = [
     overview: [
       'A pair of young lovers flee their New England town, which causes a local search party to fan out to find them.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 20,
@@ -246,7 +265,8 @@ export const dataFilms = [
     overview: [
       'True story of Heinrich Harrer, an Austrian mountain climber who became friends with the Dalai Lama at the time of China\'s takeover of Tibet.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 21,
@@ -258,7 +278,8 @@ export const dataFilms = [
     overview: [
       'A father and son go on the run after the dad learns his child possesses special powers.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 22,
@@ -270,7 +291,8 @@ export const dataFilms = [
     overview: [
       'As Earth is invaded by alien tripod fighting machines, one family fights for survival in this modern retelling of the H.G. Wells classic.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 23,
@@ -282,7 +304,8 @@ export const dataFilms = [
     overview: [
       'A year after their father\'s funeral, three brothers travel across India by train in an attempt to bond with each other.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 24,
@@ -295,7 +318,8 @@ export const dataFilms = [
       'Young nobleman Orlando is commanded by Queen Elizabeth I to stay forever young. Miraculously, he does just that.',
       'The film follows him as he moves through several centuries of British history, experiencing a variety of lives and relationships along the way.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   },
   {
     filmId: 25,
@@ -308,7 +332,8 @@ export const dataFilms = [
       'In the late 1970s, two FBI agents broaden the realm of criminal science by investigating the psychology behind murder.',
       'Based on the true-crime book, Mindhunter: Inside the FBI\'s Elite Serial Crime Unit.'
     ],
-    videoPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+    videoPreview: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    videoMovie: 'https://vkvideo.ru/video33879309_162197904',
   }
 
 ];
