@@ -1,5 +1,5 @@
 import {ReactElement, useState, useEffect} from 'react';
-import type {FilmCard} from '../../types';
+import type {FilmCatalogCardType} from '../../types';
 
 import {dataFilms} from '../../config/dataFilms';
 import {dataFilmsRating} from '../../config/dataFilmsRating';
@@ -23,7 +23,7 @@ const getFilmRating = (filmId: number): number => {
   return filmRating?.value || 0;
 };
 
-const prepareCatalogFilms = (filterByGenre?: string): FilmCard[] => dataFilms
+const prepareCatalogFilms = (filterByGenre?: string): FilmCatalogCardType[] => dataFilms
   .filter((film) => !filterByGenre || normalizeGenre(film.genre) === filterByGenre)
   .sort((a, b) => getFilmRating(b.filmId) - getFilmRating(a.filmId)) // Сортировка по рейтингу от лучших к худшим
   .map((film) => ({
@@ -44,7 +44,7 @@ function getCssClasses(isRelated: boolean): string {
   return isRelated ? 'catalog catalog--like-this' : 'catalog';
 }
 
-const filterFilmsByGenre = (catalogFilms: FilmCard[], activeGenre: GenreWithAll): FilmCard[] => {
+const filterFilmsByGenre = (catalogFilms: FilmCatalogCardType[], activeGenre: GenreWithAll): FilmCatalogCardType[] => {
   if (activeGenre === 'all') {
     return catalogFilms;
   }

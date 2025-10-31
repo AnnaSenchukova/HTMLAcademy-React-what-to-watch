@@ -15,7 +15,7 @@ export function Player(): ReactElement {
   return (
     <PlayerVideo videoSrc={film?.videoMovie} poster={film?.preview}>
       <Btn type='button' title='Exit' action='exit' />
-      <PlayerControls />
+      <PlayerControls filmName={film?.title}/>
     </PlayerVideo>
   );
 }

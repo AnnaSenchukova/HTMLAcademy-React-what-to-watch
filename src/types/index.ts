@@ -1,4 +1,4 @@
 export type {
   Film,
-  FilmCard
+  FilmCatalogCardType
 } from './film';
