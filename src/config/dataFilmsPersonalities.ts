@@ -134,5 +134,70 @@ export const dataFilmPersonalities = [
       { name: 'Emily Mortimer', roleMain: false },
       { name: 'Patricia Clarkson', roleMain: false },
     ]
+  },
+  {
+    filmId: 21,
+    director: 'Jeff Nichols',
+    starring: [
+      { name: 'Michael Shannon', roleMain: true },
+      { name: 'Joel Edgerton', roleMain: true },
+      { name: 'Kirsten Dunst', roleMain: true },
+      { name: 'Jaeden Martell', roleMain: true },
+      { name: 'Adam Driver', roleMain: false },
+      { name: 'Sam Shepard', roleMain: false },
+      { name: 'Bill Camp', roleMain: false },
+    ]
+  },
+  {
+    filmId: 22,
+    director: 'Steven Spielberg',
+    starring: [
+      { name: 'Tom Cruise', roleMain: true },
+      { name: 'Dakota Fanning', roleMain: true },
+      { name: 'Miranda Otto', roleMain: true },
+      { name: 'Justin Chatwin', roleMain: false },
+      { name: 'Tim Robbins', roleMain: false },
+      { name: 'Rick Gonzalez', roleMain: false },
+      { name: 'Yul Vazquez', roleMain: false },
+    ]
+  },
+  {
+    filmId: 23,
+    director: 'Wes Anderson',
+    starring: [
+      { name: 'Owen Wilson', roleMain: true },
+      { name: 'Adrien Brody', roleMain: true },
+      { name: 'Jason Schwartzman', roleMain: true },
+      { name: 'Anjelica Huston', roleMain: false },
+      { name: 'Cate Blanchett', roleMain: false },
+      { name: 'Bill Murray', roleMain: false },
+      { name: 'Waris Ahluwalia', roleMain: false },
+    ]
+  },
+  {
+    filmId: 24,
+    director: 'Sally Potter',
+    starring: [
+      { name: 'Tilda Swinton', roleMain: true },
+      { name: 'Billy Zane', roleMain: true },
+      { name: 'Lothaire Bluteau', roleMain: true },
+      { name: 'John Wood', roleMain: false },
+      { name: 'Charlotte Valandrey', roleMain: false },
+      { name: 'Heathcote Williams', roleMain: false },
+      { name: 'Quentin Crisp', roleMain: false },
+    ]
+  },
+  {
+    filmId: 25,
+    director: 'David Fincher',
+    starring: [
+      { name: 'Jonathan Groff', roleMain: true },
+      { name: 'Holt McCallany', roleMain: true },
+      { name: 'Anna Torv', roleMain: true },
+      { name: 'Hannah Gross', roleMain: false },
+      { name: 'Cotter Smith', roleMain: false },
+      { name: 'Stacey Roca', roleMain: false },
+      { name: 'Cameron Britton', roleMain: false },
+    ]
   }
 ];
