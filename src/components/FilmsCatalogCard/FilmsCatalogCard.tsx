@@ -3,9 +3,9 @@ import type { FilmCard } from '../../types';
 import {FilmImage} from '../FilmImage';
 import {Link} from 'react-router-dom';
 
-type FilmsCardProps = FilmCard;
+type FilmsCatalogCardProps = FilmCard;
 
-export function FilmsCatalogCard({filmId, preview, title}:FilmsCardProps):ReactElement {
+export function FilmsCatalogCard({filmId, preview, title}:FilmsCatalogCardProps):ReactElement {
   const filmLink = `/films/${filmId}`;
 
   return (
