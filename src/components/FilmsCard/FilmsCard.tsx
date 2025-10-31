@@ -7,12 +7,12 @@ import {FilmImage} from '../FilmImage';
 import {FilmButtons} from '../FilmButtons';
 import {FilmInfo} from '../FilmInfo';
 
-type FilmsCardPromoProps = PropsWithChildren<{
+type FilmsCardProps = PropsWithChildren<{
   isPromoFilm?: boolean;
   film: Film;
 }>
 
-export function FilmsCard({isPromoFilm, film, children}: FilmsCardPromoProps): ReactElement {
+export function FilmsCard({isPromoFilm, film, children}: FilmsCardProps): ReactElement {
 
   return (
     <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
