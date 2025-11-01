@@ -6,13 +6,13 @@ export type Film = {
   releaseDate: number;
   runTime: string;
   overview: string[];
-  videoPreview?: string;
-  videoMovie?: string;
+  videoPreview: string;
+  videoMovie: string;
 };
 
 export type FilmCatalogCardType = {
   filmId: number;
   preview: string;
   title: string;
-  videoPreview?: string;
+  videoPreview: string;
 };

@@ -564,14 +564,23 @@ main {
 
 .catalog__films-card {
   position: relative;
+  z-index: 1;
   width: calc((100% - 30px) / 4);
   margin-right: 10px;
   margin-bottom: 55px;
-  border-radius: 6px;}
+  border-radius: 6px;
+  -webkit-transition: 0.2s -webkit-transform;
+  transition: 0.2s -webkit-transform;
+  transition: 0.2s transform;
+  transition: 0.2s transform, 0.2s -webkit-transform; }
   .catalog__films-card:nth-child(4n) {
     margin-right: 0; }
   .catalog__films-card:nth-last-child(-n + 4) {
     margin-bottom: 0; }
+  .catalog__films-card:hover {
+    z-index: 3;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
 
 .catalog__button {
   display: block;
@@ -1025,7 +1034,7 @@ main {
 
 .player--video-preview {
   position: absolute;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   bottom: 0;
   left: 0;

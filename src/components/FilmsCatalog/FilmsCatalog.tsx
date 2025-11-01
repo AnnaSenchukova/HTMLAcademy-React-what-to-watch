@@ -30,6 +30,7 @@ const prepareCatalogFilms = (filterByGenre?: string): FilmCatalogCardType[] => d
     filmId: film.filmId,
     preview: film.preview,
     title: film.title,
+    videoPreview: film.videoPreview,
   }));
 
 const prepareGenres = (): { genres: GenreWithAll[]; genreTexts: string[] } => {

@@ -12,8 +12,14 @@ export function FilmsCatalogList({films}: FilmsCatalogListProps): ReactElement {
   return (
     <div className="catalog__films-list">
       {films.map((film) => (
-        <div className="catalog__films-card" key={film.filmId}>
-          <PlayerVideo videoSrc={film.videoPreview} poster={film.preview} />
+        <div
+          className="catalog__films-card"
+          key={film.filmId}
+        >
+          <PlayerVideo
+            videoSrc={film.videoPreview}
+            poster={film.preview}
+          />
           <FilmsCatalogCard {...film} />
         </div>
       ))}
