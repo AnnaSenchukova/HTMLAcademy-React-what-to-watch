@@ -18,9 +18,7 @@ export function PlayerVideo({videoSrc, poster, children}: PlayerVideoProps): Rea
       const video = videoRef.current;
       if (video) {
         video.currentTime = 0;
-        video.play().catch(() => {
-          // Игнорируем ошибки автовоспроизведения
-        });
+        video.play();
       }
     }, 1000);
   };
@@ -35,6 +33,7 @@ export function PlayerVideo({videoSrc, poster, children}: PlayerVideoProps): Rea
     if (video) {
       video.pause();
       video.currentTime = 0;
+      video.load();
     }
   };
 

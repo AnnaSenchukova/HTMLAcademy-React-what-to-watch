@@ -2,6 +2,7 @@ import {ReactElement} from 'react';
 import type { FilmCatalogCardType } from '../../types';
 
 import {FilmsCatalogCard} from '../FilmsCatalogCard';
+import {PlayerVideo} from '../PlayerVideo';
 
 type FilmsCatalogListProps = {
   films: FilmCatalogCardType[];
