@@ -945,7 +945,7 @@ main {
   transform: scale(1.2); }
 .film-card--small .film-card__title {
   position: absolute;
-  z-index: 2;
+  z-index: 5;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1034,7 +1034,7 @@ main {
 
 .player--video-preview {
   position: absolute;
-  z-index: 1000;
+  z-index: 3;
   top: 0;
   bottom: 0;
   left: 0;

@@ -1,4 +1,4 @@
-import {ReactElement, PropsWithChildren, useRef, useCallback} from 'react';
+import {ReactElement, PropsWithChildren, useRef} from 'react';
 
 type PlayerVideoProps = PropsWithChildren<{
   videoSrc: string;
@@ -7,61 +7,39 @@ type PlayerVideoProps = PropsWithChildren<{
 
 export function PlayerVideo({videoSrc, poster, children}: PlayerVideoProps): ReactElement {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const isPlayingRef = useRef(false);
-  const playPromiseRef = useRef<Promise<void> | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleMouseEnter = useCallback(() => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
 
-    hoverTimeoutRef.current = setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       const video = videoRef.current;
-      if (video && videoSrc && !isPlayingRef.current) {
+      if (video) {
         video.currentTime = 0;
-
-        playPromiseRef.current = video.play();
-
-        playPromiseRef.current
-          .then(() => {
-            isPlayingRef.current = true;
-            playPromiseRef.current = null;
-          })
-          .catch((error: Error) => {
-            playPromiseRef.current = null;
-          });
+        video.play().catch(() => {
+          // Игнорируем ошибки автовоспроизведения
+        });
       }
     }, 1000);
-  }, []);
+  };
 
-  const handleMouseLeave = useCallback(() => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
 
     const video = videoRef.current;
-    if (video && isPlayingRef.current) {
+    if (video) {
       video.pause();
       video.currentTime = 0;
-      isPlayingRef.current = false;
-    } else if (video && playPromiseRef.current) {
-      playPromiseRef.current
-        .then(() => {
-          video.pause();
-          video.currentTime = 0;
-          isPlayingRef.current = false;
-        })
-        .catch(() => {
-          video.pause();
-          video.currentTime = 0;
-        })
-        .finally(() => {
-          playPromiseRef.current = null;
-        });
     }
-  }, []);
+  };
+
+  const posterUrl = poster ? `img/${poster}.jpg` : undefined;
+
 
   return (
     <div
@@ -73,13 +51,11 @@ export function PlayerVideo({videoSrc, poster, children}: PlayerVideoProps): Rea
         ref={videoRef}
         className="player__video"
         src={videoSrc}
-        poster={poster ? `img/${poster}.jpg` : undefined}
+        poster={posterUrl}
         muted
         loop
         playsInline
         preload="metadata"
-        width="280"
-        height="175"
       />
       {children}
     </div>

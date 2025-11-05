@@ -2,7 +2,6 @@ import {ReactElement} from 'react';
 import type { FilmCatalogCardType } from '../../types';
 
 import {FilmsCatalogCard} from '../FilmsCatalogCard';
-import {PlayerVideo} from '../PlayerVideo';
 
 type FilmsCatalogListProps = {
   films: FilmCatalogCardType[];
@@ -16,10 +15,6 @@ export function FilmsCatalogList({films}: FilmsCatalogListProps): ReactElement {
           className="catalog__films-card"
           key={film.filmId}
         >
-          <PlayerVideo
-            videoSrc={film.videoPreview}
-            poster={film.preview}
-          />
           <FilmsCatalogCard {...film} />
         </div>
       ))}
