@@ -3,8 +3,8 @@ import {useParams} from 'react-router-dom';
 
 import {dataFilms} from '../../config/dataFilms';
 import {Header} from '../../components/Header';
-import {FilmsCard} from '../../components/FilmsCard';
 import {FilmsCatalog} from '../../components/FilmsCatalog';
+import {FilmsCard} from '../../components/FilmsCard';
 import {Footer} from '../../components/Footer';
 
 export function Films(): ReactElement | null {
