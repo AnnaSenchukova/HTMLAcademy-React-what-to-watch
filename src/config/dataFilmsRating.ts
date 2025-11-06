@@ -48,5 +48,30 @@ export const dataFilmsRating = [
     filmId: 10,
     value: 8.2,
     voicesOfViewers: 380,
+  },
+  {
+    filmId: 21,
+    value: 7.4,
+    voicesOfViewers: 195,
+  },
+  {
+    filmId: 22,
+    value: 6.5,
+    voicesOfViewers: 420,
+  },
+  {
+    filmId: 23,
+    value: 7.2,
+    voicesOfViewers: 165,
+  },
+  {
+    filmId: 24,
+    value: 7.0,
+    voicesOfViewers: 85,
+  },
+  {
+    filmId: 25,
+    value: 8.6,
+    voicesOfViewers: 520,
   }
 ];

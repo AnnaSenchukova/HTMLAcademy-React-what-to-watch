@@ -1,1 +1,1 @@
-export {FilmsCard} from './FilmsCard';
+export { FilmsCard } from './FilmsCard';

@@ -1,7 +1,7 @@
 import {ReactElement, PropsWithChildren} from 'react';
 
 import {getGenreSingular} from '../../utils/genreUtils';
-import type {Film} from '../../types/film';
+import type {Film} from '../../types';
 
 import {FilmImage} from '../FilmImage';
 import {FilmButtons} from '../FilmButtons';
@@ -13,7 +13,6 @@ type FilmsCardProps = PropsWithChildren<{
 }>
 
 export function FilmsCard({isPromoFilm, film, children}: FilmsCardProps): ReactElement {
-
   return (
     <section className={`film-card ${!isPromoFilm ? 'film-card--full' : ''}`}>
       <div className="film-card__hero">

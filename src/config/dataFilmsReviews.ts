@@ -215,5 +215,120 @@ export const dataFilmsReviews = [
     },
     reviewRating: 8.5,
     comment: 'A masterfully constructed puzzle that rewards multiple viewings and showcases Scorsese at his most atmospheric.',
+  },
+  // Отзывы для Midnight Special (filmId: 21)
+  {
+    id: 19,
+    filmId: 21,
+    author: 'The Guardian',
+    date: {
+      dateTime: '2016-03-18',
+      dateValue: 'March 18, 2016',
+    },
+    reviewRating: 7.5,
+    comment: 'Jeff Nichols crafts a compelling sci-fi thriller that balances intimate family drama with supernatural mystery.',
+  },
+  {
+    id: 20,
+    filmId: 21,
+    author: 'Variety',
+    date: {
+      dateTime: '2016-03-20',
+      dateValue: 'March 20, 2016',
+    },
+    reviewRating: 7.2,
+    comment: 'Michael Shannon delivers another powerful performance in this atmospheric and emotionally resonant film.',
+  },
+  // Отзывы для War of the Worlds (filmId: 22)
+  {
+    id: 21,
+    filmId: 22,
+    author: 'Rolling Stone',
+    date: {
+      dateTime: '2005-06-29',
+      dateValue: 'June 29, 2005',
+    },
+    reviewRating: 6.8,
+    comment: 'Spielberg delivers spectacular action sequences, though the film struggles with pacing and character development.',
+  },
+  {
+    id: 22,
+    filmId: 22,
+    author: 'Entertainment Weekly',
+    date: {
+      dateTime: '2005-06-27',
+      dateValue: 'June 27, 2005',
+    },
+    reviewRating: 6.2,
+    comment: 'Tom Cruise is solid, but the film feels more like a technical showcase than an emotionally engaging story.',
+  },
+  // Отзывы для Dardjeeling Limited (filmId: 23)
+  {
+    id: 23,
+    filmId: 23,
+    author: 'The New York Times',
+    date: {
+      dateTime: '2007-09-29',
+      dateValue: 'September 29, 2007',
+    },
+    reviewRating: 7.4,
+    comment: 'Wes Anderson\'s visual style is as meticulous as ever, creating a journey that\'s both literal and metaphorical.',
+  },
+  {
+    id: 24,
+    filmId: 23,
+    author: 'The Hollywood Reporter',
+    date: {
+      dateTime: '2007-09-28',
+      dateValue: 'September 28, 2007',
+    },
+    reviewRating: 7.0,
+    comment: 'A beautifully crafted film about brotherhood and healing, though some may find Anderson\'s style too precious.',
+  },
+  // Отзывы для Orlando (filmId: 24)
+  {
+    id: 25,
+    filmId: 24,
+    author: 'The Guardian',
+    date: {
+      dateTime: '1992-12-11',
+      dateValue: 'December 11, 1992',
+    },
+    reviewRating: 7.2,
+    comment: 'Tilda Swinton\'s transformative performance anchors this ambitious adaptation of Virginia Woolf\'s novel.',
+  },
+  {
+    id: 26,
+    filmId: 24,
+    author: 'The New York Times',
+    date: {
+      dateTime: '1992-12-13',
+      dateValue: 'December 13, 1992',
+    },
+    reviewRating: 6.8,
+    comment: 'A visually stunning exploration of gender and identity that challenges conventional narrative structures.',
+  },
+  // Отзывы для Mindhunter (filmId: 25)
+  {
+    id: 27,
+    filmId: 25,
+    author: 'The Washington Post',
+    date: {
+      dateTime: '2017-10-13',
+      dateValue: 'October 13, 2017',
+    },
+    reviewRating: 8.8,
+    comment: 'Fincher\'s meticulous direction and outstanding performances create a chilling and intelligent crime series.',
+  },
+  {
+    id: 28,
+    filmId: 25,
+    author: 'The Hollywood Reporter',
+    date: {
+      dateTime: '2017-10-12',
+      dateValue: 'October 12, 2017',
+    },
+    reviewRating: 8.4,
+    comment: 'A masterclass in psychological thriller storytelling that gets under your skin and stays there.',
   }
 ];

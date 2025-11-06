@@ -13,7 +13,7 @@ type FilmImageProps = {
 export function FilmImage({ variant, name, title, classModSize }: FilmImageProps): ReactElement {
   const getClassName = () => {
     const baseClassName = `film-card__${variant}`;
-    if (variant === 'poster') {
+    if (variant === 'poster' && classModSize) {
       return `${baseClassName} ${baseClassName}--${classModSize}`;
     }
     return baseClassName;
